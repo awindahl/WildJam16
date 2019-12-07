@@ -63,7 +63,6 @@ func _physics_process(delta):
 	var Aim = $InnerGimbal/Camera.get_camera_transform().basis
 	var FirstAction = Input.is_action_just_pressed("FirstAction")
 	
-	
 	if CameraCast.is_colliding():
 		InnerGimbal.get_node("Camera").global_transform.origin = CameraCast.get_collision_point()
 	else:
@@ -93,7 +92,7 @@ func _physics_process(delta):
 		if Jump and Movement.y < 0 :
 			Movement.y = MaxJump
 	else:
-		CurrentVerticalSpeed.y += gravity * delta * 0.6
+		CurrentVerticalSpeed.y += gravity * delta * 0.3
 		
 	Direction = Direction.normalized()
 	
