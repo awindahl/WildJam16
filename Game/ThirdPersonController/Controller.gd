@@ -20,6 +20,7 @@ var Normal = Vector3()
 var myModel
 var Animations
 var InnerGimbal
+var CameraCast
 var Direction = Vector3()
 var Rotation = Vector2()
 var gravity = -60
@@ -33,12 +34,15 @@ var IsAirborne = false
 var Yaw = 0
 var isMoving = false
 var temp = false
+var cameraDefault
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Player = get_node(PlayerPath)
 	InnerGimbal =  $InnerGimbal
 	myModel = get_parent().get_node("Mesh")
+	CameraCast = get_node("InnerGimbal/RayCast")
+	cameraDefault = get_node("InnerGimbal/Camera")
 	pass
 
 func _unhandled_input(event):
@@ -47,14 +51,6 @@ func _unhandled_input(event):
 		Yaw = fmod(Yaw - event.relative.x * MouseSensitivity/10, 360)
 		rotation = Vector3(0, deg2rad(Yaw), 0)
 		Rotation = event.relative
-	
-	if event is InputEventMouseButton:
-		match event.button_index:
-			BUTTON_WHEEL_UP:
-				ZoomFactor -= 0.05
-			BUTTON_WHEEL_DOWN:
-				ZoomFactor += 0.05
-		ZoomFactor = clamp(ZoomFactor, MaxZoom, MinZoom)
 
 func _physics_process(delta):
 	
@@ -66,7 +62,13 @@ func _physics_process(delta):
 	var Sprint = Input.is_action_pressed("Sprint")
 	var Aim = $InnerGimbal/Camera.get_camera_transform().basis
 	var FirstAction = Input.is_action_just_pressed("FirstAction")
-
+	
+	
+	if CameraCast.is_colliding():
+		InnerGimbal.get_node("Camera").global_transform.origin = CameraCast.get_collision_point()
+	else:
+		InnerGimbal.get_node("Camera").translation = Vector3(0,0.4, 4)
+	
 	if Up:
 		Direction -= Aim[2]
 	if Down:
@@ -120,7 +122,6 @@ func _physics_process(delta):
 	#Camera Rotation
 	InnerGimbal.rotate_x(deg2rad(Rotation.y) * delta * MouseSensitivity * 3)
 	InnerGimbal.rotation_degrees.x = clamp(InnerGimbal.rotation_degrees.x, -RotationLimit, RotationLimit)
-	rotate_y(deg2rad(-Rotation.x)*delta*MouseSensitivity)
 	
 	Rotation = Vector2()
 	
@@ -128,8 +129,4 @@ func _physics_process(delta):
 	Movement += CurrentVerticalSpeed
 	
 	Player.move_and_slide(Movement, Vector3(0,1,0), 0.05, 4, deg2rad(MAXSLOPEANGLE))
-	
-	#Zoom
-	ActualZoom = lerp(ActualZoom, ZoomFactor, delta * ZoomSpeed)
-	InnerGimbal.set_scale(Vector3(ActualZoom,ActualZoom,ActualZoom))
 	

@@ -11,5 +11,11 @@ PlayerPath = NodePath("..")
 transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0, 1.45646, 0 )
 
 [node name="Camera" type="Camera" parent="InnerGimbal"]
-transform = Transform( 1, 0, 0, 0, 0.959136, 0.282942, 0, -0.282942, 0.959137, 0, 0.4, 4 )
+transform = Transform( 0.333333, 0, 0, 0, 0.319712, 0.0943141, 1.77636e-015, -0.0943141, 0.319712, 0, 0.4, 4 )
 current = true
+near = 0.01
+far = 535.0
+
+[node name="RayCast" type="RayCast" parent="InnerGimbal"]
+enabled = true
+cast_to = Vector3( 0, 0.4, 4 )
