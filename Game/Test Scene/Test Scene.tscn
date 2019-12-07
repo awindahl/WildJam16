@@ -10,12 +10,12 @@
 
 [sub_resource type="GIProbeData" id=3]
 bounds = AABB( -34.4898, -32.6608, -44.2742, 68.9797, 65.3216, 88.5483 )
-cell_size = 0.691784
-to_cell_xform = Transform( 1.44554, 0, 0, 0, 1.44554, 0, 0, 0, 1.44554, 49.8564, 47.2124, 64 )
-dynamic_data = PoolIntArray( 0, 8, 128, 128, 128, 1, 0, 0, 0, 1094713344, 1094713344, 0, 267722112, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+cell_size = 1.38357
+to_cell_xform = Transform( 0.722769, 0, 0, 0, 0.722769, 0, 0, 0, 0.722769, 24.9282, 23.6062, 32 )
+dynamic_data = PoolIntArray( 0, 7, 64, 64, 64, 1, 0, 3, 5, 3, 7, 5, 8, 10, 12, 10, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
 energy = 0.1
-bias = 0.96
+bias = 4.0
 normal_bias = 0.0
 
 [node name="Test Scene" type="Spatial"]
@@ -28,7 +28,6 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 
 [node name="Level" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Floor" type="MeshInstance" parent="Level"]
@@ -71,14 +70,18 @@ transform = Transform( -0.596717, 0, 0.401226, 0, 1, 0, -0.802451, 0, -0.298359,
 transform = Transform( -0.596717, 0, 0.401226, 0, 1, 0, -0.802451, 0, -0.298359, -5.99127, 0.3854, 4.44947 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.33647, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.166, 0 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
+subdiv = 0
 extents = Vector3( 34.4898, 32.6608, 44.2742 )
 energy = 0.1
 propagation = 1.0
-bias = 0.96
+bias = 4.0
 data = SubResource( 3 )
 
 [node name="CinematicCamera" type="Camera" parent="."]
-transform = Transform( 0.770624, -0.335918, 0.541569, 0, 0.849801, 0.527104, -0.63729, -0.406199, 0.654877, 21.43, 17.42, 22.93 )
+transform = Transform( 0.767501, -0.337328, 0.545116, 0, 0.850352, 0.526214, -0.641048, -0.40387, 0.652646, 21.43, 32.79, 22.93 )
+projection = 1
+current = true
+size = 51.7

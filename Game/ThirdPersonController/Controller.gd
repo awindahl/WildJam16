@@ -45,12 +45,12 @@ func _ready():
 	cameraDefault = get_node("InnerGimbal/Camera")
 	pass
 
-func _unhandled_input(event):
-	
-	if event is InputEventMouseMotion:
-		Yaw = fmod(Yaw - event.relative.x * MouseSensitivity/10, 360)
-		rotation = Vector3(0, deg2rad(Yaw), 0)
-		Rotation = event.relative
+#func _unhandled_input(event):
+#
+#	if event is InputEventMouseMotion:
+#		Yaw = fmod(Yaw - event.relative.x * MouseSensitivity/10, 360)
+#		rotation = Vector3(0, deg2rad(Yaw), 0)
+#		Rotation = event.relative
 
 func _physics_process(delta):
 	
