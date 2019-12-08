@@ -12,8 +12,8 @@ export(float) var RotationLimit = 25
 export(float) var MaxZoom = 0.5
 export(float) var MinZoom = 1.5
 export(float) var ZoomSpeed = 2
-export(float) var WalkSpeed = 10
-export(float) var SprintSpeed = 15
+export(float) var WalkSpeed = 20
+export(float) var SprintSpeed = 30
 
 var Player
 var Normal = Vector3()
@@ -35,6 +35,7 @@ var Yaw = 0
 var isMoving = false
 var temp = false
 var cameraDefault
+var AttackTimer
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -43,7 +44,8 @@ func _ready():
 	myModel = get_parent().get_node("Mesh")
 	CameraCast = get_node("InnerGimbal/RayCast")
 	cameraDefault = get_node("InnerGimbal/Camera")
-	pass
+	AttackTimer = get_parent().get_node("AttackTimer")
+	Animations = myModel.get_node("AnimationPlayer")
 
 #func _unhandled_input(event):
 #
@@ -88,9 +90,6 @@ func _physics_process(delta):
 		else:
 			Direction = Vector3()
 			isMoving = false
-		
-		if Jump and Movement.y < 0 :
-			Movement.y = MaxJump
 	else:
 		CurrentVerticalSpeed.y += gravity * delta * 0.3
 		
@@ -110,22 +109,55 @@ func _physics_process(delta):
 	Movement.x = hVel.x
 	Movement.z = hVel.z
 	
+	var newMovement = Movement
+	newMovement = newMovement.round()
+	
 	#Player Rotation
 	if Player.is_on_floor():
 		var angle = atan2(Movement.x, Movement.z)
 		var playerRotation = Player.get_rotation()
-	
+		
 		playerRotation.y = angle
 		myModel.set_rotation(playerRotation)
 		
 	#Camera Rotation
-	InnerGimbal.rotate_x(deg2rad(Rotation.y) * delta * MouseSensitivity * 3)
-	InnerGimbal.rotation_degrees.x = clamp(InnerGimbal.rotation_degrees.x, -RotationLimit, RotationLimit)
+#	InnerGimbal.rotate_x(deg2rad(Rotation.y) * delta * MouseSensitivity * 3)
+#	InnerGimbal.rotation_degrees.x = clamp(InnerGimbal.rotation_degrees.x, -RotationLimit, RotationLimit)
 	
 	Rotation = Vector2()
+	
+	if newMovement.x == 0 and newMovement.z == 0 and Player.is_on_floor() and not temp and AttackTimer.is_stopped():
+		temp = true
+		Animations.play("Idle", 0.6)
+	if (newMovement.x != 0 or newMovement.z != 0) and Player.is_on_floor() and not Sprint and not FirstAction and AttackTimer.is_stopped() and AttackTimer.is_stopped():
+		temp = false
+
+		if Direction.dot(hVel) >= 0:
+			Animations.play("Running", 0.05)
+		
+	if Jump and Player.is_on_floor():
+		temp = false
+		Animations.stop()
+		Animations.play("Jump", -1)
+		get_parent().get_node("JumpTimer").start()
+#
+	if FirstAction and Player.is_on_floor() and AttackTimer.is_stopped():
+		AttackTimer.start()
+		#Animations.stop()
+		Animations.play("ArmAction", 0.01)
+		temp = false
 	
 	# Apply Movement
 	Movement += CurrentVerticalSpeed
 	
-	Player.move_and_slide(Movement, Vector3(0,1,0), 0.05, 4, deg2rad(MAXSLOPEANGLE))
+	if AttackTimer.is_stopped():
+		Player.move_and_slide(Movement, Vector3(0,1,0), 0.05, 4, deg2rad(MAXSLOPEANGLE))
+
+func _jump():
+	var Jump = Input.is_action_just_pressed("Jump")
 	
+	if Player.is_on_floor() and Movement.y < 0:
+			Movement.y = MaxJump
+
+func _on_JumpTimer_timeout():
+	_jump()
