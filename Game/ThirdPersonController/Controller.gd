@@ -1,12 +1,12 @@
 extends Spatial
 
 const ACCELERATION = 1
-const DECELERATION = 1
+const DECELERATION = 2
 const MAXSLOPEANGLE = 75
 
 export(NodePath) var PlayerPath  = "" #You must specify this in the inspector!
 export(float) var MovementSpeed = 0
-export(float) var MaxJump = 25
+export(float) var MaxJump = 50
 export(float) var MouseSensitivity = 1
 export(float) var RotationLimit = 25
 export(float) var MaxZoom = 0.5
@@ -129,9 +129,9 @@ func _physics_process(delta):
 	if newMovement.x == 0 and newMovement.z == 0 and Player.is_on_floor() and not temp and AttackTimer.is_stopped():
 		temp = true
 		Animations.play("Idle", 0.6)
-	if (newMovement.x != 0 or newMovement.z != 0) and Player.is_on_floor() and not Sprint and not FirstAction and AttackTimer.is_stopped() and AttackTimer.is_stopped():
+	if (newMovement.x != 0 or newMovement.z != 0) and Player.is_on_floor() and not FirstAction and AttackTimer.is_stopped() and AttackTimer.is_stopped():
 		temp = false
-
+		
 		if Direction.dot(hVel) >= 0:
 			Animations.play("Running", 0.05)
 		
