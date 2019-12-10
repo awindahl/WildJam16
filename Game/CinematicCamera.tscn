@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="CinematicCamera" type="Camera"]
+transform = Transform( 0.707107, -0.431829, 0.559932, 0, 0.791863, 0.610698, -0.707107, -0.431829, 0.559932, 8.16, 12.76, 7.93 )
+projection = 1
+current = true
+size = 54.5
+near = 0.01
+far = 534.0
