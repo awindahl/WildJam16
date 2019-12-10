@@ -20,11 +20,11 @@ bias = 1.5
 normal_bias = 0.0
 propagation = 0.7
 
-[sub_resource type="ProceduralSky" id=8]
+[sub_resource type="ProceduralSky" id=4]
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="Environment" id=5]
 background_mode = 2
-background_sky = SubResource( 8 )
+background_sky = SubResource( 4 )
 ssao_enabled = true
 dof_blur_far_distance = 55.1
 dof_blur_far_quality = 2
@@ -137,4 +137,4 @@ data = SubResource( 3 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.68133, 16.6342 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
+environment = SubResource( 5 )
