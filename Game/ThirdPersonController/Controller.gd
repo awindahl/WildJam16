@@ -15,12 +15,12 @@ export(float) var ZoomSpeed = 2
 export(float) var WalkSpeed = 20
 export(float) var SprintSpeed = 30
 
-var Player
+onready var Player = get_node(PlayerPath)
 var Normal = Vector3()
-var myModel
-var Animations
-var InnerGimbal
-var CameraCast
+onready var myModel = get_parent().get_node("Mesh")
+onready var Animations = myModel.get_node("AnimationPlayer")
+onready var InnerGimbal = $InnerGimbal
+onready var CameraCast = get_node("InnerGimbal/RayCast")
 var Direction = Vector3()
 var Rotation = Vector2()
 var gravity = -60
@@ -34,18 +34,13 @@ var IsAirborne = false
 var Yaw = 0
 var isMoving = false
 var temp = false
-var cameraDefault
-var AttackTimer
+onready var cameraDefault = get_node("InnerGimbal/Camera")
+onready var AttackTimer = get_parent().get_node("AttackTimer")
+onready var CinematicCamera = get_parent().get_node("CinematicCamera")
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Player = get_node(PlayerPath)
-	InnerGimbal =  $InnerGimbal
-	myModel = get_parent().get_node("Mesh")
-	CameraCast = get_node("InnerGimbal/RayCast")
-	cameraDefault = get_node("InnerGimbal/Camera")
-	AttackTimer = get_parent().get_node("AttackTimer")
-	Animations = myModel.get_node("AnimationPlayer")
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 #func _unhandled_input(event):
 #
@@ -161,3 +156,26 @@ func _jump():
 
 func _on_JumpTimer_timeout():
 	_jump()
+	
+func _input(event):
+	handle_interact(event)
+
+func handle_interact(event):
+	if Input.is_action_just_pressed("FirstAction"):
+		var result_dict = get_object_under_mouse()
+		var object = result_dict["collider"]
+		if object is GridMap:
+			var pos = object.world_to_map(result_dict["position"])
+			var cube = object.get_cell_item(pos[0], pos[1], pos[2])
+			if cube == 0:
+				print("you found a cube on the GridMap!")
+
+func get_object_under_mouse() -> Dictionary:
+	var mouse_pos = get_viewport().get_mouse_position()
+	var ray_from = CinematicCamera.project_ray_origin(mouse_pos)
+	var ray_to = ray_from + CinematicCamera.project_ray_normal(mouse_pos) * 1000
+	var space_state = get_world().direct_space_state
+	var selection = space_state.intersect_ray(ray_from, ray_to)
+	selection["position"] = selection["position"] + ray_to*0.001
+	return selection
+	
