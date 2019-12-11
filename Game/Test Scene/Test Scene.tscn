@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Test Scene/grey_material.tres" type="Material" id=1]
 [ext_resource path="res://Test Scene/Static cube.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ThirdPersonController/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Pickups/Key.tscn" type="PackedScene" id=4]
 [ext_resource path="res://meshlib.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://Doodads/Door.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -68,52 +69,52 @@ visible = false
 transform = Transform( -0.074227, 0, -0.499983, 0, 2.5, 0, 8.99969, 0, -0.00412372, -9.5, 2.5, 0 )
 
 [node name="Static cube5" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 2, 0, 8.74228e-08, 0, -1, -5.76545, 2, -8.04185 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 2, 0, 8.74228e-008, 0, -1, -5.76545, 2, -8.04185 )
 
 [node name="Static cube6" parent="Level" instance=ExtResource( 2 )]
 transform = Transform( 0.282327, 0, 0.479659, 0, 1, 0, -0.959318, 0, 0.141163, 5.68626, 1, 6.92052 )
 
 [node name="Static cube7" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78164, -0.328939, 5.43757 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78164, -0.328939, 5.43757 )
 
 [node name="Static cube19" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1.70313, 0, 8.74227e-08, 0, -0.5, -5.78164, 1.27508, -2.77532 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1.70313, 0, 8.74227e-008, 0, -0.5, -5.78164, 1.27508, -2.77532 )
 
 [node name="Static cube12" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78164, 0.306966, 2.78181 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78164, 0.306966, 2.78181 )
 
 [node name="Static cube14" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78164, 1.05924, -0.00400098 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78164, 1.05924, -0.00400098 )
 
 [node name="Static cube8" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78669, -0.790999, 7.22771 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78669, -0.790999, 7.22771 )
 
 [node name="Static cube18" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1.70313, 0, 8.74227e-08, 0, -0.5, -5.78669, 0.680302, -0.985184 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1.70313, 0, 8.74227e-008, 0, -0.5, -5.78669, 0.680302, -0.985184 )
 
 [node name="Static cube11" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78669, -0.155176, 4.57195 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78669, -0.155176, 4.57195 )
 
 [node name="Static cube24" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1.70313, 0, 8.74227e-08, 0, -0.5, -5.78669, 1.53505, -3.64095 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1.70313, 0, 8.74227e-008, 0, -0.5, -5.78669, 1.53505, -3.64095 )
 
 [node name="Static cube15" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.78669, 0.548193, 1.78614 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.78669, 0.548193, 1.78614 )
 
 [node name="Static cube9" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.79063, -0.551937, 6.30006 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.79063, -0.551937, 6.30006 )
 
 [node name="Static cube16" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1.70313, 0, 8.74227e-08, 0, -0.5, -5.79063, 0.990099, -1.91283 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1.70313, 0, 8.74227e-008, 0, -0.5, -5.79063, 0.990099, -1.91283 )
 
 [node name="Static cube10" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.79063, 0.0838863, 3.64429 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.79063, 0.0838863, 3.64429 )
 
 [node name="Static cube21" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 2.30146, 0, 8.74227e-08, 0, -0.5, -5.79063, 1.19519, -4.5686 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 2.30146, 0, 8.74227e-008, 0, -0.5, -5.79063, 1.19519, -4.5686 )
 
 [node name="Static cube13" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -0.999999, 0, -4.37114e-08, 0, 1, 0, 8.74227e-08, 0, -0.5, -5.79063, 0.824039, 0.858487 )
+transform = Transform( -0.999999, 0, -4.37114e-008, 0, 1, 0, 8.74227e-008, 0, -0.5, -5.79063, 0.824039, 0.858487 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.666123, 0 )
@@ -136,8 +137,11 @@ environment = SubResource( 5 )
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 5 )
 data = {
-"cells": PoolIntArray( 65532, 2, 536870912, 65532, 3, 0, 65532, 4, 0 )
+"cells": PoolIntArray( 8, 0, -1610612736, 9, 0, 1610612736, 10, 0, -1610612736, 3, 1, 0, 5, 1, 1073741824, 4, 2, 1610612736, 7, 2, -2147483648, 11, 2, 536870912, 65532, 2, -1610612736, 4, 3, -1610612736, 5, 3, 0, 10, 3, -1610612736, 65532, 3, 0, 4, 4, -1610612736, 5, 4, 0, 6, 4, 0, 7, 4, -1610612736, 10, 4, -1610612736, 65532, 4, -1610612736, 3, 5, -1610612736, 6, 5, 0, 9, 5, 0, 8, 6, 0, 3, 65526, -1610612736, 4, 65526, 0, 5, 65526, 536870912, 2, 65527, -1610612736, 6, 65527, 0, 6, 65528, 0, 2, 65529, -1610612736, 7, 65529, 0, 8, 65530, -1610612736, 2, 65531, 0, 8, 65531, 0, 6, 65532, -1610612736, 5, 65533, 0, 7, 65533, 0, 8, 65533, 0, 9, 65533, 0, 10, 65533, 0, 2, 65534, 0, 4, 65534, -1610612736, 7, 65534, 0, 8, 65534, 0, 10, 65534, 0, 4, 65535, 0, 6, 65535, 0, 8, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0
 }
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.35508, 0, -7.5039 )

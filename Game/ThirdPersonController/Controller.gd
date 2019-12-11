@@ -135,7 +135,7 @@ func _physics_process(delta):
 		Animations.stop()
 		Animations.play("Jump", -1)
 		get_parent().get_node("JumpTimer").start()
-#
+	
 	if FirstAction and Player.is_on_floor() and AttackTimer.is_stopped():
 		AttackTimer.start()
 		#Animations.stop()
