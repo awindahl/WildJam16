@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "PolygonPath",
+"language": "GDScript",
+"path": "res://addons/polygon_path/polygon_path.gd"
+}, {
+"base": "Reference",
+"class": "PolygonPathDragInfo",
+"language": "GDScript",
+"path": "res://addons/polygon_path/drag_info.gd"
+} ]
 _global_script_class_icons={
-
+"PolygonPath": "",
+"PolygonPathDragInfo": ""
 }
 
 [application]
@@ -23,6 +34,10 @@ config/icon="res://icon.png"
 
 gdscript/warnings/enable=false
 gdscript/warnings/unused_variable=false
+
+[editor_plugins]
+
+enabled=PoolStringArray( "polygon_path" )
 
 [input]
 
