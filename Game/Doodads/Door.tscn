@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 2.03542, 0.17738 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 resource_name = "Open"
 tracks/0/type = "value"
 tracks/0/path = NodePath("DoorMesh:rotation_degrees")
@@ -20,21 +20,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("DoorMesh2:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 180 ), Vector3( 0, -90, 180 ) ]
-}
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 1.713, 1.89683, 0.126706 )
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.763, 1.897, 0.127 )
 
 [node name="Door" type="Spatial"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
@@ -50,18 +38,8 @@ transform = Transform( 1, 0, 1.86265e-009, 0, 1, 0, -1.86265e-009, 0, 1, 1.28799
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13359, 0.828861 )
 shape = SubResource( 1 )
 
-[node name="DoorMesh2" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 8.74228e-008, 0, -8.74228e-008, -1, 0, 0, 0, 1, 4.52292, 4.26278, 0 )
-
-[node name="StaticBody" type="StaticBody" parent="DoorMesh2"]
-transform = Transform( 1, 0, 1.86265e-009, 0, 1, 0, -1.86265e-009, 0, 1, 1.28799, 0.0673304, -0.610602 )
-
-[node name="CollisionShape" type="CollisionShape" parent="DoorMesh2/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13359, 0.828861 )
-shape = SubResource( 1 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Open = SubResource( 3 )
+anims/Open = SubResource( 4 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32322, -0.0154202, -0.647676 )
@@ -69,6 +47,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968161, 2.13359, 1.00902 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0691485, 2.13359, 1.03134 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

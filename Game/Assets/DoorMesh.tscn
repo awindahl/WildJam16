@@ -17,5 +17,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20867, 0, -0.874288 )
 material/0 = SubResource( 1 )
 material/1 = ExtResource( 2 )
 
+[node name="Cylinder" parent="Door1" index="0"]
+use_in_baked_light = true
+
 [node name="Cylinder001" parent="Door1/Cylinder" index="0"]
 visible = false
