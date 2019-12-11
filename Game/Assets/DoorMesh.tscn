@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/door.glb" type="PackedScene" id=1]
+[ext_resource path="res://Assets/DarkWood.material" type="Material" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_name = "DarkWood"
+params_cull_mode = 2
+albedo_color = Color( 0.698039, 0.364706, 0.101961, 1 )
+roughness = 0.5
+
+[node name="DoorMesh" index="0" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06921, 0, 0 )
+
+[node name="Door1" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20867, 0, -0.874288 )
+material/0 = SubResource( 1 )
+material/1 = ExtResource( 2 )
+
+[node name="Cylinder" parent="Door1" index="0"]
+use_in_baked_light = true
+
+[node name="Cylinder001" parent="Door1/Cylinder" index="0"]
+visible = false
