@@ -19,7 +19,7 @@ func get_cell_pawn(cell : Vector3):
 
 func get_whole_shape(cell : Vector3, visited : Array = []):
 	for c in get_neighbours(cell):
-		if not c in visited:
+		if not c in visited and c != null:
 			visited.append(c)
 			get_whole_shape(c.translation, visited)
 			
@@ -27,23 +27,23 @@ func get_whole_shape(cell : Vector3, visited : Array = []):
 		visited.append(get_cell_pawn(world_to_map(cell)))
 	return visited
 	
-func get_neighbours(cell : Vector3):
+func get_neighbours(cell_translation : Vector3):
 	var adjacent_directions = [Vector3.LEFT, Vector3.RIGHT, Vector3.UP, Vector3.DOWN, Vector3.FORWARD, Vector3.BACK]
 	var neighbours = []
 	for d in adjacent_directions:
-		var n = world_to_map(cell) + d
+		var n = world_to_map(cell_translation) + d
 		var result = get_cell_item(n[0], n[1], n[2])
 		if result != -1:
 			neighbours.append(get_cell_pawn(n))
 	return neighbours
 
-func move(cells : Array, direction : Vector3):
-#	var pivot_point = Vector3()
-#	for c in cells:
-#		if direction == Vector3.RIGHT:
-#			pivot_point = max(c.translation.x, pivot_point.x)
-	for c in get_children():
-		pass
+func move_whole_shape(cells : Array, direction : Vector3):
+	for c in cells:
+		var t = world_to_map(c.translation)
+		var new_pos = t + direction
+		set_cell_item(t[0], t[1], t[2], -1)
+		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
+		c.move(direction)
 
 func _input(event):
 	handle_interact(event)
@@ -51,13 +51,13 @@ func _input(event):
 func handle_interact(event):
 	if Input.is_action_just_pressed("FirstAction"):
 		var result_dict = get_object_under_mouse()
-		var object = result_dict["collider"]
+		var object = result_dict["collider"] if result_dict.has("collider") else null
 		if object == self:
 			var pos = world_to_map(result_dict["position"])
 			var child = get_cell_pawn(pos)
 			if child:
-				for c in get_whole_shape(child.translation):
-					c.move(Vector3.LEFT)
+				var whole_shape = get_whole_shape(child.translation)
+				move_whole_shape(whole_shape, Vector3.FORWARD)
 				
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -66,5 +66,6 @@ func get_object_under_mouse() -> Dictionary:
 	var ray_to = ray_from + camera.project_ray_normal(mouse_pos) * 1000
 	var space_state = get_world().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to)
-	selection["position"] = selection["position"] + ray_to*0.001
+	if selection:
+		selection["position"] = selection["position"] + (ray_to-ray_from)*0.0001
 	return selection

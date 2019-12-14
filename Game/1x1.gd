@@ -7,7 +7,7 @@ var value : float
 var start : Transform
 var end : Transform
 
-var SPEED = 1
+var SPEED = 2
 
 func _ready():
 	set_process(false)
@@ -26,6 +26,5 @@ func _process(delta):
 func move(direction : Vector3):
 	value = 0
 	start = transform
-	#start.basis.rotated(Vector3.FORWARD, deg2rad(90))
-	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), start.origin + direction*2)
+	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), start.origin + direction*grid_map.cell_size)
 	set_process(true)
