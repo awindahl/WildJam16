@@ -156,26 +156,3 @@ func _jump():
 
 func _on_JumpTimer_timeout():
 	_jump()
-	
-func _input(event):
-	handle_interact(event)
-
-func handle_interact(event):
-	if Input.is_action_just_pressed("FirstAction"):
-		var result_dict = get_object_under_mouse()
-		var object = result_dict["collider"]
-		if object is GridMap:
-			var pos = object.world_to_map(result_dict["position"])
-			var cube = object.get_cell_item(pos[0], pos[1], pos[2])
-			if cube == 0:
-				print("you found a cube on the GridMap!")
-
-func get_object_under_mouse() -> Dictionary:
-	var mouse_pos = get_viewport().get_mouse_position()
-	var ray_from = CinematicCamera.project_ray_origin(mouse_pos)
-	var ray_to = ray_from + CinematicCamera.project_ray_normal(mouse_pos) * 1000
-	var space_state = get_world().direct_space_state
-	var selection = space_state.intersect_ray(ray_from, ray_to)
-	selection["position"] = selection["position"] + ray_to*0.001
-	return selection
-	

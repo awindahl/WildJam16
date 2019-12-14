@@ -24,16 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/scatter/src/distributions/distribution_unique.gd"
 }, {
-"base": "Spatial",
-"class": "PolygonPath",
-"language": "GDScript",
-"path": "res://addons/polygon_path/polygon_path.gd"
-}, {
-"base": "Reference",
-"class": "PolygonPathDragInfo",
-"language": "GDScript",
-"path": "res://addons/polygon_path/drag_info.gd"
-}, {
 "base": "ScatterProfile",
 "class": "ProfileJitterSimple",
 "language": "GDScript",
@@ -123,8 +113,6 @@ _global_script_class_icons={
 "DistributionGrid": "",
 "DistributionUniform": "",
 "DistributionUnique": "",
-"PolygonPath": "",
-"PolygonPathDragInfo": "",
 "ProfileJitterSimple": "",
 "ProfilePositionSimple": "",
 "ProfileRotationSimple": "",
