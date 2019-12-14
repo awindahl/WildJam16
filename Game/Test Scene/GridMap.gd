@@ -38,10 +38,12 @@ func get_neighbours(cell : Vector3):
 	return neighbours
 
 func move(cells : Array, direction : Vector3):
-	var pivot_point = Vector3()
-	for c in cells:
-		if direction == Vector3.RIGHT:
-			pivot_point = max(c.translation.x, pivot_point.x)
+#	var pivot_point = Vector3()
+#	for c in cells:
+#		if direction == Vector3.RIGHT:
+#			pivot_point = max(c.translation.x, pivot_point.x)
+	for c in get_children():
+		pass
 
 func _input(event):
 	handle_interact(event)
@@ -54,7 +56,8 @@ func handle_interact(event):
 			var pos = world_to_map(result_dict["position"])
 			var child = get_cell_pawn(pos)
 			if child:
-				print(get_whole_shape(child.translation))
+				for c in get_whole_shape(child.translation):
+					c.move(Vector3.LEFT)
 				
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
