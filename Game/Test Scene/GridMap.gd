@@ -42,8 +42,6 @@ func move(cells : Array, direction : Vector3):
 	for c in cells:
 		if direction == Vector3.RIGHT:
 			pivot_point = max(c.translation.x, pivot_point.x)
-			
-	
 
 func _input(event):
 	handle_interact(event)
