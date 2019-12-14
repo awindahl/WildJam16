@@ -1,5 +1,4 @@
 extends "pawn.gd"
-signal stopped_moving
 
 onready var grid_map : GridMap = get_parent()
 
