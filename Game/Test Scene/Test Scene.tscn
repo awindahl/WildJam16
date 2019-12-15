@@ -135,7 +135,7 @@ environment = SubResource( 5 )
 [node name="GridMap" parent="." instance=ExtResource( 5 )]
 cell_octant_size = 16
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 
 [node name="1x1" parent="GridMap" instance=ExtResource( 6 )]
