@@ -316,6 +316,7 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Objects" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="OverWorld" parent="Objects" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -521,11 +522,7 @@ interior = true
 data = SubResource( 32 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
-editor/display_folded = true
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -40.6554, 3.43153, 0 )
-
-[node name="Controller" parent="Player" index="1"]
-PlayerPath = NodePath("../../../Level2/Player")
 
 [node name="CinematicCamera" parent="Player" index="6"]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8.16, 59.84, 7.93 )
