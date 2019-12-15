@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Assets/[2K]Bricks23/Bricks23_col.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/[2K]Bricks23/Bricks23_AO.jpg" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/WorldEnvironment.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GridMap.tscn" type="PackedScene" id=15]
 [ext_resource path="res://1x1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=17]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 27.6, 9.98, 2.07 )
@@ -206,6 +207,7 @@ interior = true
 [node name="Level1" type="Spatial"]
 
 [node name="Geometry" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Reflector" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.79373, -23.3613 )
@@ -544,6 +546,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92473, 2.14755, 2.53974 )
 
 [node name="Spatial3" parent="GridMap" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0753, 2.14755, 2.53974 )
+
+[node name="Timer" parent="." instance=ExtResource( 17 )]
+wait_time = 60.0
 
 [editable path="Objects/OverWorld"]
 

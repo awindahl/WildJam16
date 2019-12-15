@@ -138,6 +138,10 @@ config/name="Fort Robot"
 run/main_scene="res://Test Scene/Test Scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [debug]
 
 gdscript/warnings/enable=false
