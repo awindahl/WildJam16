@@ -25,6 +25,5 @@ func _process(delta):
 func move(direction : Vector3, world_pos : Vector3):
 	value = 0
 	start = transform
-	print(start)
 	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)

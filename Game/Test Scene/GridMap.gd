@@ -95,6 +95,7 @@ func handle_interact(event):
 			if child:
 				var whole_shape = get_whole_shape(child.translation)
 				move_whole_shape(whole_shape, Vector3.RIGHT)
+			
 				
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -105,4 +106,5 @@ func get_object_under_mouse() -> Dictionary:
 	var selection = space_state.intersect_ray(ray_from, ray_to)
 	if selection:
 		selection["position"] = selection["position"] + (ray_to-ray_from)*0.0001
+	print(selection)
 	return selection
