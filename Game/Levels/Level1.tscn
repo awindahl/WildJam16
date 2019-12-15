@@ -207,6 +207,7 @@ interior = true
 [node name="Level1" type="Spatial"]
 
 [node name="Geometry" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Reflector" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.79373, -23.3613 )
@@ -533,7 +534,7 @@ far = 1532.0
 [node name="GridMap" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 0 )
+"cells": PoolIntArray( 65530, 65510, 536870912 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 16 )]

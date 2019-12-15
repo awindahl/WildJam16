@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Overworld.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Water.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://GridMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://1x1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/waves.ogg" type="AudioStream" id=9]
+[ext_resource path="res://theme.tres" type="Theme" id=10]
+[ext_resource path="res://Label.gd" type="Script" id=11]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -386.871, -152.079, -405.087, 773.742, 304.158, 810.174 )
@@ -124,6 +126,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116.055, 1.36611, 57.8755 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+theme = ExtResource( 10 )
+script = ExtResource( 11 )
 [connection signal="body_entered" from="Objects/WinBox" to="." method="_on_WinBox_body_entered"]
 
 [editable path="Player"]
