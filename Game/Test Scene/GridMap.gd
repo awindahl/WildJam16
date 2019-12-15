@@ -5,10 +5,10 @@ onready var shape_moving = false
 onready var shape_reversing = false
 
 var input_translation = {
-	"Forward" : Vector3.FORWARD, 
-	"Down" : Vector3.BACK, 
-	"Left" : Vector3.LEFT, 
-	"Right" : Vector3.RIGHT}
+	"Forward" : Vector3.LEFT, 
+	"Down" : Vector3.RIGHT, 
+	"Left" : Vector3.BACK, 
+	"Right" : Vector3.FORWARD}
 
 func _ready():
 	for node in get_children():
