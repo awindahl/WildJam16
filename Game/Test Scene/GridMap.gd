@@ -45,37 +45,40 @@ func move_whole_shape(cells : Array, direction : Vector3):
 #		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
 #		c.move(direction)
 
-	var a = Vector3.UP.cross(direction)
+	var a = Vector3.DOWN.cross(direction)
 	
-	
-	var pivot_point
 	for c in cells:
-		if direction == Vector3.FORWARD:
-			if c.translation[1] != 1:
+		var pivot_point
+		for d in cells:
+			if d.translation[1] != 1:
 				continue
 			
 			if not pivot_point:
-				pivot_point = c.translation
+				pivot_point = d.translation
 			else:
-				if c.translation.dot(direction) > pivot_point.dot(direction):
-					pivot_point = c.translation
-	
-	pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
-	
-	
-	
-	print("pivot_point is " + str(pivot_point))
-	
-	for c in cells:
+				if d.translation.dot(direction) > pivot_point.dot(direction):
+					pivot_point = d.translation
+		
+		if not pivot_point:
+			continue
+		
+		if direction == Vector3.FORWARD or direction == Vector3.BACK:
+			pivot_point[0] = c.translation[0]
+		if direction == Vector3.LEFT or direction == Vector3.RIGHT:
+			pivot_point[2] = c.translation[2]
+		if direction == Vector3.DOWN or direction == Vector3.UP:
+			print("down or up is unsupported")
+			
+		pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
+		
 		var t = c.translation
 		var old_pos = world_to_map(t)
-		var new_pos = (t - pivot_point).cross(Vector3.RIGHT) + pivot_point
-		print(t-pivot_point)
-#		new_pos = world_to_map(new_pos)
+		var world_pos = (t - pivot_point).cross(a) + pivot_point
+		var new_pos = world_to_map(world_pos)
 
 		set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
 		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
-		c.move(direction, new_pos)
+		c.move(direction, world_pos)
 		
 
 
@@ -91,7 +94,7 @@ func handle_interact(event):
 			var child = get_cell_pawn(pos)
 			if child:
 				var whole_shape = get_whole_shape(child.translation)
-				move_whole_shape(whole_shape, Vector3.FORWARD)
+				move_whole_shape(whole_shape, Vector3.RIGHT)
 				
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()

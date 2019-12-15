@@ -22,8 +22,9 @@ func _process(delta):
 	if value == 1:
 		set_process(false)
 	
-func move(direction : Vector3, pivot_point : Vector3):
+func move(direction : Vector3, world_pos : Vector3):
 	value = 0
 	start = transform
-	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), pivot_point)
+	print(start)
+	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)
