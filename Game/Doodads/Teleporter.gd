@@ -8,4 +8,5 @@ func _on_Area_body_entered(body):
 			get_tree().change_scene("res://Levels/Level2.tscn")
 		"Teleporter3":
 			get_tree().change_scene("res://Levels/Level3.tscn")
-		
+		"Teleporter4":
+			get_tree().change_scene("res://Levels/Level4.tscn")

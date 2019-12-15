@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/scatter/src/distributions/distribution_unique.gd"
 }, {
+"base": "Spatial",
+"class": "PolygonPath",
+"language": "GDScript",
+"path": "res://addons/polygon_path/polygon_path.gd"
+}, {
+"base": "Reference",
+"class": "PolygonPathDragInfo",
+"language": "GDScript",
+"path": "res://addons/polygon_path/drag_info.gd"
+}, {
 "base": "ScatterProfile",
 "class": "ProfileJitterSimple",
 "language": "GDScript",
@@ -113,6 +123,8 @@ _global_script_class_icons={
 "DistributionGrid": "",
 "DistributionUniform": "",
 "DistributionUnique": "",
+"PolygonPath": "",
+"PolygonPathDragInfo": "",
 "ProfileJitterSimple": "",
 "ProfilePositionSimple": "",
 "ProfileRotationSimple": "",
@@ -137,6 +149,10 @@ _global_script_class_icons={
 config/name="Fort Robot"
 run/main_scene="res://Test Scene/Test Scene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [debug]
 
@@ -193,11 +209,6 @@ FirstAction={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
-Reset={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 
