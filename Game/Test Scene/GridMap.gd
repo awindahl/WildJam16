@@ -15,6 +15,7 @@ func _ready():
 		var t = world_to_map(node.translation)
 		print("from " + str(node.translation))
 		print("setting cube " + str(t))
+		node.translation = map_to_world(t[0], t[1], t[2])
 		set_cell_item(t[0], t[1], t[2], node.type)
 
 func is_anything_selected() -> bool:
