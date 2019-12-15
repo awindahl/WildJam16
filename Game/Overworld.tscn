@@ -83,7 +83,6 @@ transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7
 environment = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 168.408, 7.35027, 43.2702 )
 
 [node name="CinematicCamera" parent="Player" index="6"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+radiance_size = 2
+sky_energy = 0.8
+ground_curve = 0.0565685
+texture_size = 0
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_sky_custom_fov = 56.0
+ambient_light_energy = 16.0
+fog_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 2 )
