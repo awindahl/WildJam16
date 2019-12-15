@@ -8,7 +8,7 @@ extends GridMap
 func _ready():
 	for node in get_children():
 		var t = world_to_map(node.translation)
-		print("setting cube " + str(t))
+		print("setting cube " + str(node.translation))
 		set_cell_item(t[0], t[1], t[2], node.type)
 
 func get_cell_pawn(cell : Vector3):
@@ -38,12 +38,46 @@ func get_neighbours(cell_translation : Vector3):
 	return neighbours
 
 func move_whole_shape(cells : Array, direction : Vector3):
+#	for c in cells:
+#		var t = world_to_map(c.translation)
+#		var new_pos = t + direction
+#		set_cell_item(t[0], t[1], t[2], -1)
+#		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
+#		c.move(direction)
+
+	var a = Vector3.UP.cross(direction)
+	
+	
+	var pivot_point
 	for c in cells:
-		var t = world_to_map(c.translation)
-		var new_pos = t + direction
-		set_cell_item(t[0], t[1], t[2], -1)
+		if direction == Vector3.FORWARD:
+			if c.translation[1] != 1:
+				continue
+			
+			if not pivot_point:
+				pivot_point = c.translation
+			else:
+				if c.translation.dot(direction) > pivot_point.dot(direction):
+					pivot_point = c.translation
+	
+	pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
+	
+	
+	
+	print("pivot_point is " + str(pivot_point))
+	
+	for c in cells:
+		var t = c.translation
+		var old_pos = world_to_map(t)
+		var new_pos = (t - pivot_point).cross(Vector3.RIGHT) + pivot_point
+		print(t-pivot_point)
+#		new_pos = world_to_map(new_pos)
+
+		set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
 		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
-		c.move(direction)
+		c.move(direction, new_pos)
+		
+
 
 func _input(event):
 	handle_interact(event)

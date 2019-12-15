@@ -1,9 +1,9 @@
 [gd_resource type="MeshLibrary" load_steps=2 format=2]
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=1]
 
 [resource]
 item/0/name = "smallboi"
-item/0/shapes = [ SubResource( 4 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
+item/0/shapes = [ SubResource( 1 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
 item/1/name = ""
 item/1/shapes = [  ]
