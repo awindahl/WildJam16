@@ -1,7 +1,7 @@
 extends "pawn.gd"
 
 onready var grid_map : GridMap = get_parent()
-
+onready var selected = false
 var value : float
 var start : Transform
 var end : Transform
@@ -27,3 +27,9 @@ func move(direction : Vector3, world_pos : Vector3):
 	start = transform
 	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)
+
+func select_or_deselect():
+	selected = not selected
+	
+func is_selected():
+	return selected

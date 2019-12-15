@@ -93,6 +93,25 @@ func handle_interact(event):
 			var pos = world_to_map(result_dict["position"])
 			var child = get_cell_pawn(pos)
 			if child:
+				child.select_or_deselect()
+	elif Input.is_action_pressed("Forward"):
+		for child in get_children():
+			if child.is_selected():
+				var whole_shape = get_whole_shape(child.translation)
+				move_whole_shape(whole_shape, Vector3.FORWARD)
+	elif Input.is_action_pressed("Down"):
+		for child in get_children():
+			if child.is_selected():
+				var whole_shape = get_whole_shape(child.translation)
+				move_whole_shape(whole_shape, Vector3.BACK)
+	elif Input.is_action_pressed("Left"):
+		for child in get_children():
+			if child.is_selected():
+				var whole_shape = get_whole_shape(child.translation)
+				move_whole_shape(whole_shape, Vector3.LEFT)
+	elif Input.is_action_pressed("Right"):
+		for child in get_children():
+			if child.is_selected():
 				var whole_shape = get_whole_shape(child.translation)
 				move_whole_shape(whole_shape, Vector3.RIGHT)
 			

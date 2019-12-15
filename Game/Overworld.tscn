@@ -43,10 +43,10 @@ directional_shadow_blend_splits = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Water" parent="Level" instance=ExtResource( 1 )]
-transform = Transform( 30, 0, 0, 0, 1, 2.62268e-006, 0, 8.74228e-008, -30, 0, -8.4633, 0 )
+transform = Transform( 30, 0, 0, 0, 1, 2.62268e-06, 0, 8.74228e-08, -30, 0, -8.4633, 0 )
 
 [node name="Island" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, -9.18894, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9.18894, 0 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 107.857, 52.5914 )
