@@ -336,6 +336,7 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Objects" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="OverWorld" parent="Objects" instance=ExtResource( 9 )]
 editor/display_folded = true
