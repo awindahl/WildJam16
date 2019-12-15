@@ -38,47 +38,27 @@ func get_neighbours(cell_translation : Vector3):
 	return neighbours
 
 func move_whole_shape(cells : Array, direction : Vector3):
-#	for c in cells:
-#		var t = world_to_map(c.translation)
-#		var new_pos = t + direction
-#		set_cell_item(t[0], t[1], t[2], -1)
-#		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
-#		c.move(direction)
-
-	var a = Vector3.DOWN.cross(direction)
+	var pivot_point
+	for d in cells:
+		if d.translation[1] != 1:
+			continue
+		if not pivot_point:
+			pivot_point = d.translation
+		else:
+			if d.translation.dot(direction) > pivot_point.dot(direction):
+				pivot_point = d.translation
+	pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
 	
 	for c in cells:
-		var pivot_point
-		for d in cells:
-			if d.translation[1] != 1:
-				continue
-			
-			if not pivot_point:
-				pivot_point = d.translation
-			else:
-				if d.translation.dot(direction) > pivot_point.dot(direction):
-					pivot_point = d.translation
-		
 		if not pivot_point:
 			continue
-		
-		if direction == Vector3.FORWARD or direction == Vector3.BACK:
-			pivot_point[0] = c.translation[0]
-		if direction == Vector3.LEFT or direction == Vector3.RIGHT:
-			pivot_point[2] = c.translation[2]
-		if direction == Vector3.DOWN or direction == Vector3.UP:
-			print("down or up is unsupported")
-			
-		pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
-		
+
 		var t = c.translation
 		var old_pos = world_to_map(t)
-		var world_pos = (t - pivot_point).cross(a) + pivot_point
-		var new_pos = world_to_map(world_pos)
-
+		var new_t = c.move(direction, pivot_point)
+		var new_pos = world_to_map(new_t)
 		set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
 		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
-		c.move(direction, world_pos)
 		
 
 
