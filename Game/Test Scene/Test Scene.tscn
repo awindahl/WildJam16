@@ -161,6 +161,8 @@ script = ExtResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, 3 )
 script = ExtResource( 8 )
 
+[node name="InputTimer" type="Timer" parent="GridMap"]
+
 [node name="Door" parent="." instance=ExtResource( 9 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -7.35508, 0, -7.5039 )
 

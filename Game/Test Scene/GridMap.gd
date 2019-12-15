@@ -1,19 +1,25 @@
 extends GridMap
+signal finished_moving_shape
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var input_timer : Timer = $InputTimer
+onready var shape_moving = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	for node in get_children():
+	for node in get_spatial_children():
 		var t = world_to_map(node.translation)
 		print("setting cube " + str(node.translation))
 		set_cell_item(t[0], t[1], t[2], node.type)
 
+func get_spatial_children():
+	var c = Array()
+	for n in get_children():
+		if n is Spatial:
+			c.append(n)
+	return c
+
 func get_cell_pawn(cell : Vector3):
 	# By having this function we don't need to keep an array of all of its child objects
-	for node in get_children():
+	for node in get_spatial_children():
 		if world_to_map(node.translation) == cell:
 			return node
 
@@ -78,7 +84,12 @@ func move_whole_shape(cells : Array, direction : Vector3):
 
 		set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
 		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
+		
 		c.move(direction, world_pos)
+		if c == cells[-1]:
+			yield(c, "finished_moving")
+	emit_signal("finished_moving_shape")
+		
 		
 
 
@@ -86,6 +97,8 @@ func _input(event):
 	handle_interact(event)
 
 func handle_interact(event):
+	var d = {}
+
 	if Input.is_action_just_pressed("FirstAction"):
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
@@ -94,26 +107,38 @@ func handle_interact(event):
 			var child = get_cell_pawn(pos)
 			if child:
 				child.select_or_deselect()
-	elif Input.is_action_pressed("Forward"):
-		for child in get_children():
+	elif Input.is_action_pressed("Forward") and not shape_moving:
+		for child in get_spatial_children():
 			if child.is_selected():
 				var whole_shape = get_whole_shape(child.translation)
+				shape_moving = true
 				move_whole_shape(whole_shape, Vector3.FORWARD)
-	elif Input.is_action_pressed("Down"):
-		for child in get_children():
+				yield(self, "finished_moving_shape")
+				shape_moving = false
+	elif Input.is_action_pressed("Down") and not shape_moving:
+		for child in get_spatial_children():
 			if child.is_selected():
 				var whole_shape = get_whole_shape(child.translation)
+				shape_moving = true
 				move_whole_shape(whole_shape, Vector3.BACK)
-	elif Input.is_action_pressed("Left"):
-		for child in get_children():
+				yield(self, "finished_moving_shape")
+				shape_moving = false
+	elif Input.is_action_pressed("Left") and not shape_moving:
+		for child in get_spatial_children():
 			if child.is_selected():
 				var whole_shape = get_whole_shape(child.translation)
+				shape_moving = true
 				move_whole_shape(whole_shape, Vector3.LEFT)
-	elif Input.is_action_pressed("Right"):
-		for child in get_children():
+				yield(self, "finished_moving_shape")
+				shape_moving = false
+	elif Input.is_action_pressed("Right") and not shape_moving:
+		for child in get_spatial_children():
 			if child.is_selected():
 				var whole_shape = get_whole_shape(child.translation)
+				shape_moving = true
 				move_whole_shape(whole_shape, Vector3.RIGHT)
+				yield(self, "finished_moving_shape")
+				shape_moving = false
 			
 				
 func get_object_under_mouse() -> Dictionary:

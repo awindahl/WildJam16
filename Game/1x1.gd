@@ -1,7 +1,13 @@
 extends "pawn.gd"
+signal finished_moving
 
 onready var grid_map : GridMap = get_parent()
 onready var selected = false
+onready var mesh_instance = $smallboi
+
+var stone = preload("res://Assets/stone.material")
+var stone_selected = preload("res://Assets/StoneSelected.material")
+
 var value : float
 var start : Transform
 var end : Transform
@@ -21,6 +27,7 @@ func _process(delta):
 	
 	if value == 1:
 		set_process(false)
+		emit_signal("finished_moving")
 	
 func move(direction : Vector3, world_pos : Vector3):
 	value = 0
@@ -29,6 +36,11 @@ func move(direction : Vector3, world_pos : Vector3):
 	set_process(true)
 
 func select_or_deselect():
+	if selected:
+		mesh_instance.set_material_override(stone)
+	else:
+		mesh_instance.set_material_override(stone_selected)
+		
 	selected = not selected
 	
 func is_selected():
