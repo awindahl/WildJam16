@@ -29,6 +29,7 @@ scale_random = 1.0
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
+flags_unshaded = true
 albedo_color = Color( 1, 0.701961, 0, 0.403922 )
 
 [sub_resource type="SphereMesh" id=4]
