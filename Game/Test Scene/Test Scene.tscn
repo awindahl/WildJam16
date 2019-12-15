@@ -45,7 +45,6 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 
 [node name="Level" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Floor" type="MeshInstance" parent="Level"]
@@ -135,10 +134,8 @@ environment = SubResource( 5 )
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 5 )
-collision_layer = 0
-collision_mask = 0
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 1610612736 )
 }
 script = ExtResource( 6 )
 __meta__ = {

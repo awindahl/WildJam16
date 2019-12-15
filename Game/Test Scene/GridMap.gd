@@ -103,7 +103,7 @@ func handle_interact(event):
 			c.selected = false
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
-		if not shape_moving and object.get_parent().get_parent() in get_children():
+		if not shape_moving and object == self:
 			var whole_shape = get_whole_shape(result_dict["position"])
 			for child in whole_shape:
 				if child and child.has_method("select_or_deselect"):
