@@ -20,7 +20,6 @@ func _ready():
 	
 func _process(delta):
 	value += delta*SPEED
-	
 	if value > 1:
 		value = 1
 	
@@ -33,13 +32,10 @@ func _process(delta):
 	
 func move(direction : Vector3, pivot_point : Vector3):
 	value = 0
-	start_transform = transform
-	translate = Transform.IDENTITY
-	translate.origin = - pivot_point
-	print(transform)
-	end_quat = Quat(Vector3.UP.cross(direction), deg2rad(90))
+<<<<<<< HEAD
+	start = transform
+	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)
-	return (translate.inverse() * Transform(end_quat) * translate).xform(translation)
 
 func select_or_deselect():
 	if selected:
@@ -51,3 +47,12 @@ func select_or_deselect():
 	
 func is_selected():
 	return selected
+=======
+	start_transform = transform
+	translate = Transform.IDENTITY
+	translate.origin = - pivot_point
+	print(transform)
+	end_quat = Quat(Vector3.UP.cross(direction), deg2rad(90))
+	set_process(true)
+	return (translate.inverse() * Transform(end_quat) * translate).xform(translation)
+>>>>>>> shape_improvements
