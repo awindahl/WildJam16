@@ -63,6 +63,7 @@ func move_whole_shape(cells : Array, direction : Vector3):
 		
 	var new_pos_dict = Dictionary()
 	var old_pos_dict = Dictionary()
+	shape_moving = true
 	shape_reversing = false
 	for c in cells:
 		var t = c.translation
@@ -74,7 +75,7 @@ func move_whole_shape(cells : Array, direction : Vector3):
 		
 		if c == cells[-1]:
 			yield(c, "finished_moving")
-	
+	shape_moving = false
 	if not shape_reversing:
 		for c in cells:
 			var old_pos = old_pos_dict.get(c)
@@ -99,27 +100,36 @@ func _input(event):
 func handle_interact(event):
 	if Input.is_action_just_pressed("FirstAction"):
 		var selected_children = get_selected_children()
-		for c in selected_children:
-			c.selected = false
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
-		if not shape_moving and object == self:
+		if (not shape_moving) and object == self:
 			var whole_shape = get_whole_shape(result_dict["position"])
+			for c in selected_children:
+				if not c in whole_shape:
+					c.selected = false
 			for child in whole_shape:
 				if child and child.has_method("select_or_deselect"):
 					child.select_or_deselect()
+		else:
+			deselect_all()
 
 	for key in input_translation:
 		check_box_moves(key)
 
+func deselect_all():
+	if shape_moving or shape_reversing:
+		return
+	for c in get_selected_children():
+		c.selected = false
+		
 func check_box_moves(key):
 	if Input.is_action_pressed(key) and not shape_moving:
 		var selected_children = get_selected_children()
 		if not selected_children:
 			return
-		shape_moving = true
+		
 		move_whole_shape(selected_children, input_translation[key])
-		shape_moving = false
+		
 
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
