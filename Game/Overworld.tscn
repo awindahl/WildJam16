@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Island.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Doodads/Teleporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Doodads/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ThirdPersonController/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GridMap.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -386.871, -152.079, -405.087, 773.742, 304.158, 810.174 )
@@ -43,10 +44,10 @@ directional_shadow_blend_splits = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Water" parent="Level" instance=ExtResource( 1 )]
-transform = Transform( 30, 0, 0, 0, 1, 2.62268e-006, 0, 8.74228e-008, -30, 0, -6.64735, 0 )
+transform = Transform( 30, 0, 0, 0, 1, 2.62268e-06, 0, 8.74228e-08, -30, 0, -6.64735, 0 )
 
 [node name="Island" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, -9.18894, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9.18894, 0 )
 
 [node name="Teleporter1" parent="Level" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 3.55967, 0, 0, 0, 2.0263, 14.5041, 5.22701, 9.20278 )
@@ -71,18 +72,19 @@ data = SubResource( 1 )
 editor/display_folded = true
 
 [node name="Door" parent="Objects" instance=ExtResource( 4 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, 6.18461, 148.908 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, 6.18461, 148.908 )
 
 [node name="Door2" parent="Objects" instance=ExtResource( 4 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, 6.18461, 140.533 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, 6.18461, 140.533 )
 
 [node name="Door3" parent="Objects" instance=ExtResource( 4 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, -18.3247, 204.026 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, -18.3247, 204.026 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 168.408, 7.35027, 43.2702 )
 
 [node name="CinematicCamera" parent="Player" index="6"]
@@ -90,5 +92,10 @@ transform = Transform( 3.62746, -0.5, 0.5, 0, 0.707107, 0.707107, -3.62746, -0.5
 v_offset = -67.58
 size = 82.3
 far = 8192.0
+
+[node name="GridMap" parent="." instance=ExtResource( 6 )]
+data = {
+"cells": PoolIntArray( 65530, 65510, 536870912 )
+}
 
 [editable path="Player"]

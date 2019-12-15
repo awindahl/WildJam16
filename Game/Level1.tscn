@@ -197,9 +197,9 @@ propagation = 0.7
 interior = true
 
 [node name="Level1" type="Spatial"]
+editor/display_folded = true
 
 [node name="Geometry" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Reflector" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.79373, -23.3613 )
