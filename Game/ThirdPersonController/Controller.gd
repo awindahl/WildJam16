@@ -132,7 +132,7 @@ func _physics_process(delta):
 		if Direction.dot(hVel) >= 0:
 			Animations.play("Running", 0.05)
 		
-	if Jump and Player.is_on_floor():
+	if Jump and Player.is_on_floor() and not anything_selected:
 		temp = false
 		Animations.stop()
 		Animations.play("Jump", -1)
