@@ -551,6 +551,7 @@ interior = true
 data = SubResource( 67 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
+editor/display_folded = true
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -40.6554, 3.43153, 0 )
 
 [node name="CinematicCamera" parent="Player" index="6"]
