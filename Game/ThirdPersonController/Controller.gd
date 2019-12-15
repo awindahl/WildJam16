@@ -58,6 +58,7 @@ func _physics_process(delta):
 	var Right = Input.is_action_pressed("Right")
 	var Jump = Input.is_action_just_pressed("Jump")
 	var Sprint = Input.is_action_pressed("Sprint")
+	var Reset = Input.is_action_pressed("Reset")
 	var Aim = $InnerGimbal/Camera.get_camera_transform().basis
 	var FirstAction = Input.is_action_just_pressed("FirstAction")
 	
@@ -148,6 +149,9 @@ func _physics_process(delta):
 			# TODO: ROTATE PLAYER TO LOOK AT CUBES WHEN HE'S MOVING THEM
 			pass
 	
+	if Reset:
+		get_tree().reload_current_scene()
+
 	# Apply Movement
 	Movement += CurrentVerticalSpeed
 	
