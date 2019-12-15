@@ -2,11 +2,11 @@ extends "pawn.gd"
 signal finished_moving
 
 onready var grid_map : GridMap = get_parent()
-onready var selected = false
+var selected = false setget set_selected, get_selected
 onready var mesh_instance = $smallboi
 
-var stone = preload("res://Assets/stone.material")
-var stone_selected = preload("res://Assets/StoneSelected.material")
+onready var stone = mesh_instance.get_material_override()
+onready var stone_selected = preload("res://Assets/StoneSelected.material")
 
 var value : float
 var translate : Transform
@@ -36,18 +36,22 @@ func move(direction : Vector3, pivot_point : Vector3):
 	start_transform = transform
 	translate = Transform.IDENTITY
 	translate.origin = - pivot_point
-	print(transform)
 	end_quat = Quat(Vector3.UP.cross(direction), deg2rad(90))
 	set_process(true)
 	return (translate.inverse() * Transform(end_quat) * translate).xform(translation)
 
-func select_or_deselect():
+func set_selected(b : bool):
+	selected = b
 	if selected:
-		mesh_instance.set_material_override(stone)
-	else:
 		mesh_instance.set_material_override(stone_selected)
-		
-	selected = not selected
+	else:
+		mesh_instance.set_material_override(stone)
+
+func get_selected() -> bool:
+	return selected
+
+func select_or_deselect():
+	set_selected(not selected)
 	
 func is_selected():
 	return selected

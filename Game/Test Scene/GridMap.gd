@@ -3,6 +3,12 @@ signal finished_moving_shape
 
 onready var shape_moving = false
 
+var input_translation = {
+	"Forward" : Vector3.FORWARD, 
+	"Down" : Vector3.BACK, 
+	"Left" : Vector3.LEFT, 
+	"Right" : Vector3.RIGHT}
+
 func _ready():
 	for node in get_children():
 		var t = world_to_map(node.translation)
@@ -61,6 +67,13 @@ func move_whole_shape(cells : Array, direction : Vector3):
 			yield(c, "finished_moving")
 	emit_signal("finished_moving_shape")
 
+func get_selected_children() -> Array:
+	var a = Array()
+	for c in get_children():
+		if c.is_selected():
+			a.append(c)
+	return a
+
 func _input(event):
 	handle_interact(event)
 
@@ -69,44 +82,27 @@ func handle_interact(event):
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
 		if object == self:
-			var pos = world_to_map(result_dict["position"])
-			var child = get_cell_pawn(pos)
-			if child:
+			var whole_shape = get_whole_shape(result_dict["position"])
+			for child in whole_shape:
 				child.select_or_deselect()
-	elif Input.is_action_pressed("Forward") and not shape_moving:
-		for child in get_children():
-			if child.is_selected():
-				var whole_shape = get_whole_shape(child.translation)
-				shape_moving = true
-				move_whole_shape(whole_shape, Vector3.FORWARD)
-				yield(self, "finished_moving_shape")
-				shape_moving = false
-	elif Input.is_action_pressed("Down") and not shape_moving:
-		for child in get_children():
-			if child.is_selected():
-				var whole_shape = get_whole_shape(child.translation)
-				shape_moving = true
-				move_whole_shape(whole_shape, Vector3.BACK)
-				yield(self, "finished_moving_shape")
-				shape_moving = false
-	elif Input.is_action_pressed("Left") and not shape_moving:
-		for child in get_children():
-			if child.is_selected():
-				var whole_shape = get_whole_shape(child.translation)
-				shape_moving = true
-				move_whole_shape(whole_shape, Vector3.LEFT)
-				yield(self, "finished_moving_shape")
-				shape_moving = false
-	elif Input.is_action_pressed("Right") and not shape_moving:
-		for child in get_children():
-			if child.is_selected():
-				var whole_shape = get_whole_shape(child.translation)
-				shape_moving = true
-				move_whole_shape(whole_shape, Vector3.RIGHT)
-				yield(self, "finished_moving_shape")
-				shape_moving = false
-			
-				
+
+	for key in input_translation:
+		check_box_moves(key)
+
+func check_box_moves(key):
+	if Input.is_action_pressed(key) and not shape_moving:
+		var selected_children = get_selected_children()
+		if not selected_children:
+			return
+		shape_moving = true
+		move_whole_shape(selected_children, input_translation[key])
+		yield(self, "finished_moving_shape")
+		
+		for c in get_whole_shape(selected_children[0].translation):
+			c.set_selected(true)
+		shape_moving = false
+	
+
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
 	var camera = get_viewport().get_camera()
