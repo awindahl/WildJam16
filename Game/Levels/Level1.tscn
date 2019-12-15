@@ -207,7 +207,6 @@ interior = true
 [node name="Level1" type="Spatial"]
 
 [node name="Geometry" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Reflector" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.79373, -23.3613 )
@@ -532,19 +531,19 @@ far = 1532.0
 [node name="WorldEnvironment" parent="." instance=ExtResource( 14 )]
 
 [node name="GridMap" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35767, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26084, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07527, 2.14755, -17.4603 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07527, 2.14755, -18.3612 )
 
 [node name="Spatial2" parent="GridMap" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92473, 2.14755, 2.53974 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35118, 2.14755, 2.10082 )
 
 [node name="Spatial3" parent="GridMap" instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0753, 2.14755, 2.53974 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0753, 2.14755, 1.73811 )
 
 [node name="Timer" parent="." instance=ExtResource( 17 )]
 
