@@ -14,7 +14,7 @@ var translate : Transform
 var rotate : Transform
 var start_transform : Transform
 var end_quat : Quat
-var SPEED = 2
+var SPEED = 4
 
 func _ready():
 	connect("failed_moving", grid_map, "on_cube_failed_move")
