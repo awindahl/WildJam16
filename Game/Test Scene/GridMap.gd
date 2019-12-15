@@ -13,7 +13,8 @@ var input_translation = {
 func _ready():
 	for node in get_children():
 		var t = world_to_map(node.translation)
-		print("setting cube " + str(node.translation))
+		print("from " + str(node.translation))
+		print("setting cube " + str(t))
 		set_cell_item(t[0], t[1], t[2], node.type)
 
 func is_anything_selected() -> bool:
@@ -48,7 +49,7 @@ func get_neighbours(cell_translation : Vector3):
 func move_whole_shape(cells : Array, direction : Vector3):
 	var pivot_point
 	for d in cells:
-		if d.translation[1] != 1:
+		if world_to_map(d.translation)[1] != 0:
 			continue
 		if not pivot_point:
 			pivot_point = d.translation
@@ -127,7 +128,6 @@ func check_box_moves(key):
 		var selected_children = get_selected_children()
 		if not selected_children:
 			return
-		
 		move_whole_shape(selected_children, input_translation[key])
 		
 

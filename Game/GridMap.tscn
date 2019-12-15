@@ -5,6 +5,7 @@
 
 [node name="GridMap" type="GridMap"]
 mesh_library = ExtResource( 1 )
+cell_size = Vector3( 8, 8, 8 )
 data = {
 "cells": PoolIntArray( 65530, 65510, 0 )
 }

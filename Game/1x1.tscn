@@ -1,16 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://1x1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Stone.material" type="Material" id=2]
-[ext_resource path="res://Assets/Stone.tres" type="Material" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 2 )
+size = Vector3( 4, 4, 4 )
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.01346, 1.99663, 2.00933 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.967505, 0.954836, 0.952822 )
+extents = Vector3( 1.90993, 1.9, 1.90593 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
@@ -18,7 +19,7 @@ script = ExtResource( 1 )
 [node name="smallboi" type="MeshInstance" parent="."]
 use_in_baked_light = true
 mesh = SubResource( 1 )
-material/0 = ExtResource( 3 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="smallboi"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )

@@ -1,0 +1,8 @@
+[gd_resource type="MeshLibrary" load_steps=2 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.01346, 1.99663, 2.00933 )
+
+[resource]
+item/0/name = "smallboi"
+item/0/shapes = [ SubResource( 1 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ) ]
