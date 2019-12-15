@@ -2,11 +2,11 @@ extends "pawn.gd"
 signal finished_moving
 
 onready var grid_map : GridMap = get_parent()
-var selected = false setget set_selected, get_selected
+onready var selected = false
 onready var mesh_instance = $smallboi
 
-onready var stone = mesh_instance.get_material_override()
-onready var stone_selected = preload("res://Assets/StoneSelected.material")
+var stone = preload("res://Assets/stone.material")
+var stone_selected = preload("res://Assets/StoneSelected.material")
 
 var value : float
 var translate : Transform
@@ -16,12 +16,10 @@ var end_quat : Quat
 var SPEED = 2
 
 func _ready():
-#	connect("finished_moving", grid_map, 
 	set_process(false)
 	
 func _process(delta):
 	value += delta*SPEED
-	
 	if value > 1:
 		value = 1
 	
@@ -34,25 +32,27 @@ func _process(delta):
 	
 func move(direction : Vector3, pivot_point : Vector3):
 	value = 0
-	start_transform = transform
-	translate = Transform.IDENTITY
-	translate.origin = - pivot_point
-	end_quat = Quat(Vector3.UP.cross(direction), deg2rad(90))
+<<<<<<< HEAD
+	start = transform
+	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)
-	return (translate.inverse() * Transform(end_quat) * translate).xform(translation)
-
-func set_selected(b : bool):
-	selected = b
-	if selected:
-		mesh_instance.set_material_override(stone_selected)
-	else:
-		mesh_instance.set_material_override(stone)
-
-func get_selected() -> bool:
-	return selected
 
 func select_or_deselect():
-	set_selected(not selected)
+	if selected:
+		mesh_instance.set_material_override(stone)
+	else:
+		mesh_instance.set_material_override(stone_selected)
+		
+	selected = not selected
 	
 func is_selected():
 	return selected
+=======
+	start_transform = transform
+	translate = Transform.IDENTITY
+	translate.origin = - pivot_point
+	print(transform)
+	end_quat = Quat(Vector3.UP.cross(direction), deg2rad(90))
+	set_process(true)
+	return (translate.inverse() * Transform(end_quat) * translate).xform(translation)
+>>>>>>> shape_improvements
