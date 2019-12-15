@@ -229,7 +229,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Floor2" type="MeshInstance" parent="Geometry"]
-transform = Transform( 3.98384, 0, 0, 0, 58.4775, 0, 0, 0, 27.8386, 69.846, -39, 0 )
+transform = Transform( 3.98384, 0, 0, 0, 58.4775, 0, 0, 0, 27.8386, 81.846, -39, 0 )
 layers = 3
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
@@ -324,6 +324,7 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Objects" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="OverWorld" parent="Objects" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 6.13824, 0, 0, 0, 4.94654, -55.2628, 7.68, 0 )
