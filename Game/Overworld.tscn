@@ -94,8 +94,9 @@ size = 82.3
 far = 8192.0
 
 [node name="GridMap" parent="." instance=ExtResource( 6 )]
+cell_size = Vector3( 4, 4, 4 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 
 [editable path="Player"]
