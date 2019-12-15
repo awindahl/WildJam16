@@ -535,7 +535,7 @@ far = 1532.0
 [node name="GridMap" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35767, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 0 )
+"cells": PoolIntArray( 65530, 65510, 536870912 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 16 )]
@@ -548,7 +548,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92473, 2.14755, 2.53974 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0753, 2.14755, 2.53974 )
 
 [node name="Timer" parent="." instance=ExtResource( 17 )]
-wait_time = 60.0
 
 [editable path="Objects/OverWorld"]
 

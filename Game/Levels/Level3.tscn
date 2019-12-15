@@ -19,13 +19,13 @@
 [ext_resource path="res://1x1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://LevelTimer.tscn" type="PackedScene" id=18]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=35]
 size = Vector3( 27.6, 9.98, 2.07 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=36]
 size = Vector3( 0.07, 27.63, 0.03 )
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=37]
 albedo_color = Color( 0, 0, 0, 1 )
 emission_enabled = true
 emission = Color( 0.905882, 0.772549, 0.254902, 1 )
@@ -33,10 +33,10 @@ emission_energy = 2.8
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=38]
 size = Vector3( 27.6, 1.41, 4.22 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=39]
 albedo_color = Color( 0.643137, 0.643137, 0.643137, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
@@ -51,21 +51,21 @@ ao_on_uv2 = false
 ao_texture_channel = 0
 uv1_scale = Vector3( 29.61, 11.05, 1 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=40]
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=41]
 extents = Vector3( 13.86, 1, 1 )
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=42]
 size = Vector3( 27.6, 1.41, 4.22 )
 
-[sub_resource type="ConcavePolygonShape" id=9]
+[sub_resource type="ConcavePolygonShape" id=43]
 data = PoolVector3Array( -13.8, 0.705, 2.11, 13.8, 0.705, 2.11, -13.8, -0.705, 2.11, 13.8, 0.705, 2.11, 13.8, -0.705, 2.11, -13.8, -0.705, 2.11, 13.8, 0.705, -2.11, -13.8, 0.705, -2.11, 13.8, -0.705, -2.11, -13.8, 0.705, -2.11, -13.8, -0.705, -2.11, 13.8, -0.705, -2.11, 13.8, 0.705, 2.11, 13.8, 0.705, -2.11, 13.8, -0.705, 2.11, 13.8, 0.705, -2.11, 13.8, -0.705, -2.11, 13.8, -0.705, 2.11, -13.8, 0.705, -2.11, -13.8, 0.705, 2.11, -13.8, -0.705, -2.11, -13.8, 0.705, 2.11, -13.8, -0.705, 2.11, -13.8, -0.705, -2.11, 13.8, 0.705, 2.11, -13.8, 0.705, 2.11, 13.8, 0.705, -2.11, -13.8, 0.705, 2.11, -13.8, 0.705, -2.11, 13.8, 0.705, -2.11, -13.8, -0.705, 2.11, 13.8, -0.705, 2.11, -13.8, -0.705, -2.11, 13.8, -0.705, 2.11, 13.8, -0.705, -2.11, -13.8, -0.705, -2.11 )
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="CubeMesh" id=44]
 size = Vector3( 25.87, 1.41, 4.22 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=45]
 albedo_color = Color( 0.643137, 0.643137, 0.643137, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
@@ -80,10 +80,10 @@ ao_on_uv2 = false
 ao_texture_channel = 0
 uv1_scale = Vector3( -19.16, -11.41, 1 )
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=46]
 extents = Vector3( 12.95, 0.98, 2.11 )
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=47]
 albedo_color = Color( 0.643137, 0.643137, 0.643137, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
@@ -98,32 +98,32 @@ ao_on_uv2 = false
 ao_texture_channel = 0
 uv1_scale = Vector3( -20.01, -15.08, 1 )
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=48]
 extents = Vector3( 24.35, 1.97, 2.13 )
 
-[sub_resource type="ConcavePolygonShape" id=15]
+[sub_resource type="ConcavePolygonShape" id=49]
 data = PoolVector3Array( 0.4375, 1, 0.5, 0.5, 0, 0.5625, 0.4375, 0, 0.5, 0.5, 0, 0.5625, 0.4375, 1, 0.5, 0.5, 1, 0.5625, 0.5, 1, -0.5625, 0.4375, 0, -0.5, 0.5, 0, -0.5625, 0.4375, 0, -0.5, 0.5, 1, -0.5625, 0.4375, 1, -0.5, 0.5625, 0, 0.5, 0.5, 1, 0.5625, 0.5625, 1, 0.5, 0.5, 1, 0.5625, 0.5625, 0, 0.5, 0.5, 0, 0.5625, 0.5625, 1, 0.5, 0.5, 1, -0.5625, 0.5625, 1, -0.5, 0.5, 1, -0.5625, 0.5625, 1, 0.5, 0.5, 1, 0.5625, 0.5, 1, -0.5625, 0.5, 1, 0.5625, 0.4375, 1, -0.5, 0.4375, 1, -0.5, 0.5, 1, 0.5625, 0.4375, 1, 0.5, 0.6125, 0, -0.2323, 0.3875, 0, -0.1823, 0.6125, 0, -0.1823, 0.3875, 0, -0.1823, 0.6125, 0, -0.2323, 0.5625, 0, -0.2323, 0.3875, 0, -0.1823, 0.5625, 0, -0.2323, 0.4375, 0, -0.2324, 0.4375, 0, -0.2324, 0.5625, 0, -0.2323, 0.5625, 0, -0.5, 0.4375, 0, -0.2324, 0.5625, 0, -0.5, 0.5, 0, -0.5625, 0.3875, 0, -0.1823, 0.4375, 0, -0.2324, 0.3875, 0, -0.2324, 0.5, 0, -0.5625, 0.4375, 0, -0.5, 0.4375, 0, -0.2324, 0.5, 0, -0.5625, 0.5625, 1, -0.5, 0.5, 1, -0.5625, 0.5625, 1, -0.5, 0.5, 0, -0.5625, 0.5625, 0, -0.5, 0.3875, 0, 0.1823, 0.6125, 0, 0.2323, 0.6125, 0, 0.1823, 0.6125, 0, 0.2323, 0.3875, 0, 0.1823, 0.5625, 0, 0.2323, 0.5625, 0, 0.2323, 0.3875, 0, 0.1823, 0.4375, 0, 0.2324, 0.5625, 0, 0.2323, 0.4375, 0, 0.2324, 0.5625, 0, 0.5, 0.5625, 0, 0.5, 0.4375, 0, 0.2324, 0.5, 0, 0.5625, 0.5, 0, 0.5625, 0.4375, 0, 0.2324, 0.4375, 0, 0.5, 0.4375, 0, 0.2324, 0.3875, 0, 0.1823, 0.3875, 0, 0.2324, 0.4375, 0.8047, 0.2324, 0.4375, 0, 0.5, 0.4375, 0, 0.2324, 0.4375, 0.8047, 0.2324, 0.4375, 1, 0.5, 0.4375, 0, 0.5, 0.4375, 0.8047, -0.2324, 0.4375, 1, 0.5, 0.4375, 0.8047, 0.2324, 0.4375, 0.8047, -0.2324, 0.4375, 1, -0.5, 0.4375, 1, 0.5, 0.4375, 0, -0.2324, 0.4375, 1, -0.5, 0.4375, 0.8047, -0.2324, 0.4375, 1, -0.5, 0.4375, 0, -0.2324, 0.4375, 0, -0.5, 0.5625, 0, -0.5, 0.5625, 0, -0.2323, 0.5625, 0.8046, -0.2323, 0.5625, 0.8046, -0.2323, 0.5625, 1, -0.5, 0.5625, 0, -0.5, 0.5625, 1, -0.5, 0.5625, 0.8046, -0.2323, 0.5625, 1, 0.5, 0.5625, 1, 0.5, 0.5625, 0.8046, -0.2323, 0.5625, 0.8046, 0.2323, 0.5625, 1, 0.5, 0.5625, 0.8046, 0.2323, 0.5625, 0, 0.2323, 0.5625, 1, 0.5, 0.5625, 0, 0.2323, 0.5625, 0, 0.5, 0.6125, 0.7545, 0.1823, 0.3875, 0, 0.1823, 0.6125, 0, 0.1823, 0.3875, 0, 0.1823, 0.6125, 0.7545, 0.1823, 0.3875, 0.7545, 0.1823, 0.6125, 0.7545, -0.1823, 0.3875, 0.7545, 0.1823, 0.6125, 0.7545, 0.1823, 0.3875, 0.7545, 0.1823, 0.6125, 0.7545, -0.1823, 0.3875, 0.7545, -0.1823, 0.3875, 0, -0.1823, 0.6125, 0.7545, -0.1823, 0.6125, 0, -0.1823, 0.6125, 0.7545, -0.1823, 0.3875, 0, -0.1823, 0.3875, 0.7545, -0.1823, 0.6125, 0.7545, -0.1823, 0.6125, 0.8046, -0.2323, 0.6125, 0, -0.2323, 0.6125, 0.8046, -0.2323, 0.6125, 0.7545, -0.1823, 0.6125, 0.8046, 0.2323, 0.6125, 0.8046, 0.2323, 0.6125, 0.7545, -0.1823, 0.6125, 0.7545, 0.1823, 0.6125, 0.8046, 0.2323, 0.6125, 0.7545, 0.1823, 0.6125, 0, 0.1823, 0.6125, 0.8046, 0.2323, 0.6125, 0, 0.1823, 0.6125, 0, 0.2323, 0.6125, 0, -0.2323, 0.6125, 0, -0.1823, 0.6125, 0.7545, -0.1823, 0.6125, 0.8046, -0.2323, 0.5625, 0, -0.2323, 0.6125, 0, -0.2323, 0.5625, 0, -0.2323, 0.6125, 0.8046, -0.2323, 0.5625, 0.8046, -0.2323, 0.6125, 0.8046, 0.2323, 0.5625, 0.8046, -0.2323, 0.6125, 0.8046, -0.2323, 0.5625, 0.8046, -0.2323, 0.6125, 0.8046, 0.2323, 0.5625, 0.8046, 0.2323, 0.5625, 0, 0.2323, 0.6125, 0.8046, 0.2323, 0.6125, 0, 0.2323, 0.6125, 0.8046, 0.2323, 0.5625, 0, 0.2323, 0.5625, 0.8046, 0.2323, 0.3875, 0.7545, 0.1823, 0.3875, 0, 0.2324, 0.3875, 0, 0.1823, 0.3875, 0.7545, 0.1823, 0.3875, 0.8047, 0.2324, 0.3875, 0, 0.2324, 0.3875, 0.7545, -0.1823, 0.3875, 0.8047, 0.2324, 0.3875, 0.7545, 0.1823, 0.3875, 0.7545, -0.1823, 0.3875, 0.8047, -0.2324, 0.3875, 0.8047, 0.2324, 0.3875, 0, -0.1823, 0.3875, 0.8047, -0.2324, 0.3875, 0.7545, -0.1823, 0.3875, 0.8047, -0.2324, 0.3875, 0, -0.1823, 0.3875, 0, -0.2324, 0.3875, 0, 0.2324, 0.4375, 0.8047, 0.2324, 0.4375, 0, 0.2324, 0.4375, 0.8047, 0.2324, 0.3875, 0, 0.2324, 0.3875, 0.8047, 0.2324, 0.4375, 0.8047, 0.2324, 0.3875, 0.8047, -0.2324, 0.4375, 0.8047, -0.2324, 0.3875, 0.8047, -0.2324, 0.4375, 0.8047, 0.2324, 0.3875, 0.8047, 0.2324, 0.4375, 0, -0.2324, 0.3875, 0.8047, -0.2324, 0.3875, 0, -0.2324, 0.3875, 0.8047, -0.2324, 0.4375, 0, -0.2324, 0.4375, 0.8047, -0.2324 )
 
-[sub_resource type="SpatialMaterial" id=16]
+[sub_resource type="SpatialMaterial" id=50]
 flags_transparent = true
 albedo_color = Color( 0.572549, 0.92549, 0.917647, 1 )
 
-[sub_resource type="PrismMesh" id=17]
+[sub_resource type="PrismMesh" id=51]
 size = Vector3( 2.5, 3.79, 2.98 )
 
-[sub_resource type="SpatialMaterial" id=18]
+[sub_resource type="SpatialMaterial" id=52]
 albedo_color = Color( 0, 0, 0, 1 )
 metallic = 1.0
 roughness = 0.0
 
-[sub_resource type="Gradient" id=19]
+[sub_resource type="Gradient" id=53]
 offsets = PoolRealArray( 0.0172414, 1 )
 colors = PoolColorArray( 1, 1, 0, 1, 1, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=20]
-gradient = SubResource( 19 )
+[sub_resource type="GradientTexture" id=54]
+gradient = SubResource( 53 )
 
-[sub_resource type="ParticlesMaterial" id=21]
+[sub_resource type="ParticlesMaterial" id=55]
 emission_shape = 1
 emission_sphere_radius = 0.2
 spread = 0.0
@@ -133,9 +133,9 @@ angular_velocity_random = 1.0
 linear_accel = 4.0
 scale = 3.0
 scale_random = 1.0
-color_ramp = SubResource( 20 )
+color_ramp = SubResource( 54 )
 
-[sub_resource type="SpatialMaterial" id=22]
+[sub_resource type="SpatialMaterial" id=56]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -145,17 +145,17 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 10 )
 
-[sub_resource type="QuadMesh" id=23]
-material = SubResource( 22 )
+[sub_resource type="QuadMesh" id=57]
+material = SubResource( 56 )
 
-[sub_resource type="Gradient" id=24]
+[sub_resource type="Gradient" id=58]
 offsets = PoolRealArray( 0.00862069, 1 )
 colors = PoolColorArray( 0, 0, 0, 0.627451, 1, 1, 1, 0.388235 )
 
-[sub_resource type="GradientTexture" id=25]
-gradient = SubResource( 24 )
+[sub_resource type="GradientTexture" id=59]
+gradient = SubResource( 58 )
 
-[sub_resource type="ParticlesMaterial" id=26]
+[sub_resource type="ParticlesMaterial" id=60]
 emission_shape = 1
 emission_sphere_radius = 0.8
 spread = 11.9
@@ -165,9 +165,9 @@ angular_velocity_random = 1.0
 linear_accel = 4.0
 scale = 3.0
 scale_random = 1.0
-color_ramp = SubResource( 25 )
+color_ramp = SubResource( 59 )
 
-[sub_resource type="SpatialMaterial" id=27]
+[sub_resource type="SpatialMaterial" id=61]
 flags_unshaded = true
 vertex_color_use_as_albedo = true
 params_blend_mode = 1
@@ -177,30 +177,30 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 albedo_texture = ExtResource( 11 )
 
-[sub_resource type="QuadMesh" id=28]
-material = SubResource( 27 )
+[sub_resource type="QuadMesh" id=62]
+material = SubResource( 61 )
 
-[sub_resource type="Gradient" id=29]
+[sub_resource type="Gradient" id=63]
 offsets = PoolRealArray( 0.0078125, 1 )
 colors = PoolColorArray( 1, 0, 0, 1, 1, 1, 0, 1 )
 
-[sub_resource type="GradientTexture" id=30]
-gradient = SubResource( 29 )
+[sub_resource type="GradientTexture" id=64]
+gradient = SubResource( 63 )
 
-[sub_resource type="SpatialMaterial" id=31]
+[sub_resource type="SpatialMaterial" id=65]
 emission_enabled = true
 emission = Color( 0, 0, 0, 1 )
 emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
-emission_texture = SubResource( 30 )
+emission_texture = SubResource( 64 )
 
-[sub_resource type="CubeMesh" id=32]
+[sub_resource type="CubeMesh" id=66]
 
 [sub_resource type="BoxShape" id=34]
 extents = Vector3( 25.804, 1, 60.348 )
 
-[sub_resource type="GIProbeData" id=33]
+[sub_resource type="GIProbeData" id=67]
 bounds = AABB( -147.892, -93.7722, -124.876, 295.783, 187.544, 249.752 )
 cell_size = 2.31081
 to_cell_xform = Transform( 0.432749, 0, 0, 0, 0.432749, 0, 0, 0, 0.432749, 64, 40.5798, 54.04 )
@@ -219,7 +219,7 @@ editor/display_folded = true
 [node name="Reflector" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.79373, -23.3613 )
 visible = false
-mesh = SubResource( 1 )
+mesh = SubResource( 35 )
 material/0 = null
 
 [node name="Light" type="MeshInstance" parent="Geometry"]
@@ -227,85 +227,85 @@ transform = Transform( -2.2769e-06, -3, 0, 3, -2.2769e-06, 0, 0, 0, 3, 0, 16.341
 visible = false
 cast_shadow = 0
 use_in_baked_light = true
-mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+mesh = SubResource( 36 )
+material/0 = SubResource( 37 )
 
 [node name="Floor" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3.98384, 0, 0, 0, 58.4775, 0, 0, 0, 27.8386, -75.2045, -39, 0 )
 layers = 3
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 38 )
+material/0 = SubResource( 39 )
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/Floor"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/Floor/StaticBody"]
 transform = Transform( 13.4423, 0, 0, 0, 0.729507, 0, 0, 0, 2.51768, 0.358379, -0.0183316, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 40 )
 
 [node name="Floor2" type="MeshInstance" parent="Geometry"]
 transform = Transform( 3.98384, 0, 0, 0, 58.4775, 0, 0, 0, 27.8386, 81.846, -39, 0 )
 layers = 3
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 38 )
+material/0 = SubResource( 39 )
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/Floor2"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/Floor2/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2.49958, 0, -0.293589, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 41 )
 
 [node name="InvisWall2" type="MeshInstance" parent="Geometry"]
 editor/display_folded = true
 transform = Transform( 5.57536, 0, 0, 0, 36.0434, 0, 0, 0, 3, 0, 0, 64.6802 )
 visible = false
-mesh = SubResource( 8 )
+mesh = SubResource( 42 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/InvisWall2"]
 input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/InvisWall2/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 43 )
 
 [node name="DoorWall" type="MeshInstance" parent="Geometry"]
 transform = Transform( -1.25379e-06, 0, -23.337, 0, 126.479, 0, 4.444, 0, -6.58407e-06, -103.812, 0, 1.07192 )
 layers = 2
 use_in_baked_light = true
-mesh = SubResource( 10 )
-material/0 = SubResource( 11 )
+mesh = SubResource( 44 )
+material/0 = SubResource( 45 )
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/DoorWall"]
 input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/DoorWall/StaticBody"]
 transform = Transform( 1, 0, -1.13687e-13, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0 )
-shape = SubResource( 12 )
+shape = SubResource( 46 )
 
 [node name="DoorWall2" type="MeshInstance" parent="Geometry"]
 transform = Transform( -6.96003, 0, 0, 0, 138.817, 0, 0, 0, 13.023, -35.1197, 3.8147e-06, -81.8027 )
 layers = 2
 use_in_baked_light = true
-mesh = SubResource( 10 )
-material/0 = SubResource( 13 )
+mesh = SubResource( 44 )
+material/0 = SubResource( 47 )
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/DoorWall2"]
 input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/DoorWall2/StaticBody"]
-shape = SubResource( 14 )
+shape = SubResource( 48 )
 
 [node name="InvisWall" type="MeshInstance" parent="Geometry"]
 editor/display_folded = true
 transform = Transform( -2.43707e-07, 0, 3, 0, 36.0434, 0, -5.57536, 0, -1.31134e-07, 61.1596, -7.62939e-06, -1.81744 )
 visible = false
-mesh = SubResource( 8 )
+mesh = SubResource( 42 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="Geometry/InvisWall"]
 input_ray_pickable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/InvisWall/StaticBody"]
-shape = SubResource( 9 )
+shape = SubResource( 43 )
 
 [node name="Water" parent="Geometry" instance=ExtResource( 5 )]
 transform = Transform( 148.993, 0, 0, 0, 95.5164, 0, 0, 0, 126.13, 0, 0, 0 )
@@ -328,7 +328,7 @@ spot_range = 314.256
 [node name="StaticBody" type="StaticBody" parent="Geometry/Doorway"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Geometry/Doorway/StaticBody"]
-shape = SubResource( 15 )
+shape = SubResource( 49 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Geometry"]
 transform = Transform( 1, 0, 0, 0, -0.0709114, 0.997483, 0, -0.997483, -0.0709114, 0, 15.4641, 0 )
@@ -337,6 +337,7 @@ light_specular = 0.0
 shadow_enabled = true
 
 [node name="Objects" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="OverWorld" parent="Objects" instance=ExtResource( 9 )]
 editor/display_folded = true
@@ -344,7 +345,7 @@ transform = Transform( 1, 0, 0, 0, 6.13824, 0, 0, 0, 4.94654, -55.2628, 7.68, 0 
 
 [node name="MeshInstance" parent="Objects/OverWorld" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266411, 0, 0 )
-material/0 = SubResource( 16 )
+material/0 = SubResource( 50 )
 
 [node name="Area" parent="Objects/OverWorld" index="1"]
 editor/display_folded = true
@@ -352,15 +353,15 @@ editor/display_folded = true
 [node name="Torch" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1.2666e-07, -0.0640675, 0.368732, 0, -0.999033, -0.0111408, 1, 7.91624e-09, -4.84288e-08, -53.0162, 33.2984, 28.8647 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -368,21 +369,21 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Torch4" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1, 1.07167e-08, -6.45465e-08, 0, -0.999033, -0.0111408, -1.70371e-07, 0.0640675, -0.368732, 37.8058, 33.2984, -54.124 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch4"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch4"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -390,21 +391,21 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Torch2" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1.2666e-07, -0.0640675, 0.368732, 0, -0.999033, -0.0111408, 1, 7.91624e-09, -4.84288e-08, -53.0162, 33.2984, -1.46589 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch2"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch2"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -412,21 +413,21 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Torch6" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1, 1.07167e-08, -6.45465e-08, 0, -0.999033, -0.0111408, -1.70371e-07, 0.0640675, -0.368732, 7.47521, 33.2984, -54.124 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch6"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch6"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -434,22 +435,22 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Torch3" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1.2666e-07, -0.0640675, 0.368732, 0, -0.999033, -0.0111408, 1, 7.91624e-09, -4.84288e-08, -53.0162, 33.2984, -32.502 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch3"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 use_in_baked_light = true
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch3"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -457,22 +458,22 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Torch5" type="MeshInstance" parent="Objects"]
 editor/display_folded = true
 transform = Transform( 1, 1.07167e-08, -6.45465e-08, 0, -0.999033, -0.0111408, -1.70371e-07, 0.0640675, -0.368732, -23.5609, 33.2984, -54.124 )
-mesh = SubResource( 17 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 51 )
+material/0 = SubResource( 52 )
 
 [node name="Fire" type="Particles" parent="Objects/Torch5"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550339, 0, 0.286891, 4.93505, 0.143473, -2.38179, -0.413838 )
 use_in_baked_light = true
 amount = 40
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 21 )
-draw_pass_1 = SubResource( 23 )
+process_material = SubResource( 55 )
+draw_pass_1 = SubResource( 57 )
 
 [node name="Smoke" type="Particles" parent="Objects/Torch5"]
 transform = Transform( 1.21774, 0, 0, 0, 1.65116, -0.0550338, 0, 0.286891, 4.93505, 0.143473, -3.99937, -0.694894 )
@@ -480,55 +481,55 @@ amount = 40
 lifetime = 1.4
 randomness = 1.0
 visibility_aabb = AABB( -3.90186, -4, -4, 8, 8, 8 )
-process_material = SubResource( 26 )
-draw_pass_1 = SubResource( 28 )
+process_material = SubResource( 60 )
+draw_pass_1 = SubResource( 62 )
 
 [node name="Light" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 10.9021, 0, 0, 0, 3.61464, -54.4155, 48.0775, -1.24929 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Light6" type="MeshInstance" parent="Objects"]
 transform = Transform( -4.37114e-08, 0, 3.61464, 0, 10.9021, 0, -1, 0, -1.58001e-07, 7.69182, 48.0775, -52.7248 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Light2" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 10.9021, 0, 0, 0, 3.61464, -54.4155, 48.0775, 29.0347 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Light4" type="MeshInstance" parent="Objects"]
 transform = Transform( -4.37114e-08, 0, 3.61464, 0, 10.9021, 0, -1, 0, -1.58001e-07, 37.9758, 48.0775, -52.7248 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Light3" type="MeshInstance" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 10.9021, 0, 0, 0, 3.61464, -54.4155, 48.0775, -31.9653 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Light5" type="MeshInstance" parent="Objects"]
 transform = Transform( -4.37114e-08, 0, 3.61464, 0, 10.9021, 0, -1, 0, -1.58001e-07, -23.0242, 48.0775, -52.7248 )
 visible = false
-material_override = SubResource( 31 )
+material_override = SubResource( 65 )
 use_in_baked_light = true
-mesh = SubResource( 32 )
+mesh = SubResource( 66 )
 material/0 = null
 
 [node name="Area" type="Area" parent="Objects"]
@@ -547,14 +548,10 @@ transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 34.0418, 6.56943, 0 )
 [node name="GIProbe" type="GIProbe" parent="."]
 extents = Vector3( 147.892, 93.7722, 124.876 )
 interior = true
-data = SubResource( 33 )
+data = SubResource( 67 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-editor/display_folded = true
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -40.6554, 3.43153, 0 )
-
-[node name="Controller" parent="Player" index="1"]
-PlayerPath = NodePath("../../../Level2/Player")
 
 [node name="CinematicCamera" parent="Player" index="6"]
 transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8.16, 59.84, 7.93 )
@@ -568,7 +565,7 @@ far = 1532.0
 [node name="GridMap" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50921, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 17 )]

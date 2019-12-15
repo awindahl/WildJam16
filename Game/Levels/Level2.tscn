@@ -594,7 +594,7 @@ far = 1532.0
 [node name="GridMap" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50921, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 536870912 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 16 )]
