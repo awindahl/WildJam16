@@ -145,7 +145,8 @@ func _physics_process(delta):
 		temp = false
 		var selected_cubes = grid_map.get_selected_children()
 		if selected_cubes.size() > 0:
-			myModel.look_at(selected_cubes[0].translation, Vector3.UP)
+			# TODO: ROTATE PLAYER TO LOOK AT CUBES WHEN HE'S MOVING THEM
+			pass
 	
 	# Apply Movement
 	Movement += CurrentVerticalSpeed

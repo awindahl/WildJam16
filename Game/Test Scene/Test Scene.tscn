@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Test Scene/grey_material.tres" type="Material" id=1]
 [ext_resource path="res://Test Scene/Static cube.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ThirdPersonController/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Pickups/Key.tscn" type="PackedScene" id=4]
-[ext_resource path="res://meshlib.tres" type="MeshLibrary" id=5]
-[ext_resource path="res://Test Scene/GridMap.gd" type="Script" id=6]
-[ext_resource path="res://1x1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GridMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://1x1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -45,6 +44,7 @@ shadow_enabled = true
 directional_shadow_blend_splits = true
 
 [node name="Level" type="Spatial" parent="."]
+editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Floor" type="MeshInstance" parent="Level"]
@@ -132,27 +132,21 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -16.4671, 13.7718, -24.606 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
 
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource( 5 )
+[node name="GridMap" parent="." instance=ExtResource( 5 )]
 data = {
 "cells": PoolIntArray( 65530, 65510, 0 )
 }
-script = ExtResource( 6 )
-__meta__ = {
-"_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 0, 0 )
-}
 
-[node name="1x1" parent="GridMap" instance=ExtResource( 7 )]
+[node name="1x1" parent="GridMap" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1, 1 )
 
-[node name="1x2" parent="GridMap" instance=ExtResource( 7 )]
+[node name="1x2" parent="GridMap" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1 )
 
-[node name="1x3" parent="GridMap" instance=ExtResource( 7 )]
+[node name="1x3" parent="GridMap" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1, 3 )
 
-[node name="1x4" parent="GridMap" instance=ExtResource( 7 )]
+[node name="1x4" parent="GridMap" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, 3 )
 
 [editable path="Player"]
