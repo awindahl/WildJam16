@@ -51,8 +51,9 @@ func move_whole_shape(cells : Array, direction : Vector3):
 		else:
 			if d.translation.dot(direction) > pivot_point.dot(direction):
 				pivot_point = d.translation
-	pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
-	
+	if pivot_point:
+		pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
+		
 	for c in cells:
 		if not pivot_point:
 			continue
@@ -65,8 +66,8 @@ func move_whole_shape(cells : Array, direction : Vector3):
 		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
 		if c == cells[-1]:
 			yield(c, "finished_moving")
-	emit_signal("finished_moving_shape")
-
+	for c in get_whole_shape(cells[0].translation):
+		c.set_selected(true)
 func get_selected_children() -> Array:
 	var a = Array()
 	for c in get_children():
@@ -79,6 +80,8 @@ func _input(event):
 
 func handle_interact(event):
 	if Input.is_action_just_pressed("FirstAction"):
+		for c in get_selected_children():
+			c.selected = false
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
 		if object == self:
@@ -96,12 +99,8 @@ func check_box_moves(key):
 			return
 		shape_moving = true
 		move_whole_shape(selected_children, input_translation[key])
-		yield(self, "finished_moving_shape")
-		
-		for c in get_whole_shape(selected_children[0].translation):
-			c.set_selected(true)
 		shape_moving = false
-	
+
 
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()

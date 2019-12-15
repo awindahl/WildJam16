@@ -16,6 +16,7 @@ var end_quat : Quat
 var SPEED = 2
 
 func _ready():
+#	connect("finished_moving", grid_map, 
 	set_process(false)
 	
 func _process(delta):
