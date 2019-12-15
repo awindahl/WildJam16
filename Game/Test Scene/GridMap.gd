@@ -133,6 +133,7 @@ func get_object_under_mouse() -> Dictionary:
 	return selection
 
 func on_cube_failed_move():
-	shape_reversing = true
-	for c in get_selected_children():
-		c.reverse()
+	if not shape_reversing:
+		shape_reversing = true
+		for c in get_selected_children():
+			c.reverse()

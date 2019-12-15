@@ -10,7 +10,7 @@ material = ExtResource( 2 )
 [sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.909043, 0.947544, 0.904714 )
+extents = Vector3( 0.967505, 0.954836, 0.952822 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
