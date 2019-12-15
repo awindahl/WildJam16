@@ -18,6 +18,7 @@ var SPEED = 2
 
 func _ready():
 	connect("failed_moving", grid_map, "on_cube_failed_move")
+	static_body.connect("input_event", grid_map, "on_cube_clicked_on")
 
 	set_process(false)
 	
@@ -32,7 +33,7 @@ func _process(delta):
 
 	if value == 1:
 		set_process(false)
-		emit_signal("finished_moving")	
+		emit_signal("finished_moving")
 
 func move(direction : Vector3, pivot_point : Vector3):
 	value = 0
@@ -59,7 +60,6 @@ func select_or_deselect():
 func is_selected():
 	return selected
 
-
 func _on_Area_body_entered(body):
 	if not body is GridMap and body != static_body:
 		emit_signal("failed_moving")
@@ -68,3 +68,7 @@ func reverse():
 	value = 1 - value
 	start_transform = translate.inverse() * Transform(end_quat) * translate * start_transform
 	end_quat = end_quat.inverse()
+
+
+func _on_StaticBody_input_event(camera, event, click_position, click_normal, shape_idx):
+	print("asd")

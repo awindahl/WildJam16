@@ -2,6 +2,7 @@ extends GridMap
 signal finished_moving_shape
 
 onready var shape_moving = false
+onready var shape_reversing = false
 
 var input_translation = {
 	"Forward" : Vector3.FORWARD, 
@@ -57,15 +58,28 @@ func move_whole_shape(cells : Array, direction : Vector3):
 	else:
 		return
 		
+	var new_pos_dict = Dictionary()
+	var old_pos_dict = Dictionary()
+	shape_reversing = false
 	for c in cells:
 		var t = c.translation
 		var old_pos = world_to_map(t)
 		var new_t = c.move(direction, pivot_point)
 		var new_pos = world_to_map(new_t)
-		set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
-		set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
+		new_pos_dict[c] = new_pos
+		old_pos_dict[c] = old_pos
+		
 		if c == cells[-1]:
 			yield(c, "finished_moving")
+	
+	if not shape_reversing:
+		for c in cells:
+			var old_pos = old_pos_dict.get(c)
+			var new_pos = new_pos_dict.get(c)
+			set_cell_item(old_pos[0], old_pos[1], old_pos[2], -1)
+			set_cell_item(new_pos[0], new_pos[1], new_pos[2], c.type)
+
+		
 	for c in get_whole_shape(cells[0].translation):
 		c.set_selected(true)
 
@@ -81,14 +95,16 @@ func _input(event):
 
 func handle_interact(event):
 	if Input.is_action_just_pressed("FirstAction"):
-		for c in get_selected_children():
+		var selected_children = get_selected_children()
+		for c in selected_children:
 			c.selected = false
 		var result_dict = get_object_under_mouse()
 		var object = result_dict["collider"] if result_dict.has("collider") else null
-		if object == self:
+		if not shape_moving and object.get_parent().get_parent() in get_children():
 			var whole_shape = get_whole_shape(result_dict["position"])
 			for child in whole_shape:
-				child.select_or_deselect()
+				if child and child.has_method("select_or_deselect"):
+					child.select_or_deselect()
 
 	for key in input_translation:
 		check_box_moves(key)
@@ -114,5 +130,6 @@ func get_object_under_mouse() -> Dictionary:
 	return selection
 
 func on_cube_failed_move():
+	shape_reversing = true
 	for c in get_selected_children():
 		c.reverse()
