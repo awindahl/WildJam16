@@ -51,10 +51,10 @@ editor/display_folded = true
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
 
 [node name="Water" parent="Level" instance=ExtResource( 2 )]
-transform = Transform( 30, 0, 0, 0, 1, 2.62268e-006, 0, 8.74228e-008, -30, 0, -6.64735, 0 )
+transform = Transform( 30, 0, 0, 0, 1, 2.62268e-06, 0, 8.74228e-08, -30, 0, -6.64735, 0 )
 
 [node name="Island" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 0, -9.18894, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -9.18894, 0 )
 
 [node name="Teleporter1" parent="Level" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 3.55967, 0, 0, 0, 2.0263, 14.5041, 5.22701, 9.20278 )
@@ -81,13 +81,13 @@ data = SubResource( 1 )
 [node name="Objects" type="Spatial" parent="."]
 
 [node name="Door" parent="Objects" instance=ExtResource( 5 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, 6.18461, 148.908 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, 6.18461, 148.908 )
 
 [node name="Door2" parent="Objects" instance=ExtResource( 5 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, 6.18461, 140.533 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, 6.18461, 140.533 )
 
 [node name="Door3" parent="Objects" instance=ExtResource( 5 )]
-transform = Transform( -6.407, 0, -1.10801e-006, 0, 6.328, 0, 9.6743e-007, 0, -7.338, 184.878, -18.3247, 204.026 )
+transform = Transform( -6.407, 0, -1.10801e-06, 0, 6.328, 0, 9.6743e-07, 0, -7.338, 184.878, -18.3247, 204.026 )
 
 [node name="WinBox" type="Area" parent="Objects"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.405, 0, 262.104 )
@@ -112,7 +112,7 @@ far = 8192.0
 [node name="GridMap" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.87017, 0 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 0 )
+"cells": PoolIntArray( 65530, 65510, 536870912 )
 }
 
 [node name="Spatial" parent="GridMap" instance=ExtResource( 8 )]
