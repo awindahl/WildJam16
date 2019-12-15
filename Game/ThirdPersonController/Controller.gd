@@ -37,6 +37,7 @@ var temp = false
 onready var cameraDefault = get_node("InnerGimbal/Camera")
 onready var AttackTimer = get_parent().get_node("AttackTimer")
 onready var CinematicCamera = get_parent().get_node("CinematicCamera")
+onready var grid_map = get_parent().get_parent().get_node("GridMap")
 
 func _ready():
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -64,15 +65,16 @@ func _physics_process(delta):
 		InnerGimbal.get_node("Camera").global_transform.origin = CameraCast.get_collision_point()
 	else:
 		InnerGimbal.get_node("Camera").translation = Vector3(0,0.4, 4)
-	
-	if Up:
-		Direction -= Aim[2]
-	if Down:
-		Direction += Aim[2]
-	if Left:
-		Direction -= Aim[0]
-	if Right:
-		Direction += Aim[0]
+	var anything_selected = grid_map.is_anything_selected()
+	if not anything_selected:
+		if Up:
+			Direction -= Aim[2]
+		if Down:
+			Direction += Aim[2]
+		if Left:
+			Direction -= Aim[0]
+		if Right:
+			Direction += Aim[0]
 	
 	if Player.is_on_floor():
 		CurrentVerticalSpeed = Vector3()

@@ -68,7 +68,3 @@ func reverse():
 	value = 1 - value
 	start_transform = translate.inverse() * Transform(end_quat) * translate * start_transform
 	end_quat = end_quat.inverse()
-
-
-func _on_StaticBody_input_event(camera, event, click_position, click_normal, shape_idx):
-	print("asd")

@@ -16,6 +16,9 @@ func _ready():
 		print("setting cube " + str(node.translation))
 		set_cell_item(t[0], t[1], t[2], node.type)
 
+func is_anything_selected() -> bool:
+	return get_selected_children().size() > 0
+
 func get_cell_pawn(cell : Vector3):
 	# By having this function we don't need to keep an array of all of its child objects
 	for node in get_children():
