@@ -4,7 +4,7 @@ signal finished_moving
 onready var grid_map : GridMap = get_parent()
 var selected = false setget set_selected, get_selected
 onready var mesh_instance = $smallboi
-
+onready var static_body = $smallboi/StaticBody
 onready var stone = mesh_instance.get_material_override()
 onready var stone_selected = preload("res://Assets/StoneSelected.material")
 
@@ -17,6 +17,7 @@ var SPEED = 2
 
 func _ready():
 #	connect("finished_moving", grid_map, 
+
 	set_process(false)
 	
 func _process(delta):
@@ -30,8 +31,8 @@ func _process(delta):
 
 	if value == 1:
 		set_process(false)
-		emit_signal("finished_moving")
-	
+		emit_signal("finished_moving")	
+
 func move(direction : Vector3, pivot_point : Vector3):
 	value = 0
 	start_transform = transform
@@ -56,3 +57,10 @@ func select_or_deselect():
 	
 func is_selected():
 	return selected
+
+
+func _on_Area_body_entered(body):
+	if not body is GridMap and body != static_body:
+		value = 1 - value
+		start_transform = translate.inverse() * Transform(end_quat) * translate * start_transform
+		end_quat = end_quat.inverse()

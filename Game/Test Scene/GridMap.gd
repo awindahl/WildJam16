@@ -51,13 +51,13 @@ func move_whole_shape(cells : Array, direction : Vector3):
 		else:
 			if d.translation.dot(direction) > pivot_point.dot(direction):
 				pivot_point = d.translation
+
 	if pivot_point:
 		pivot_point = pivot_point + direction*cell_size/2 + Vector3.DOWN*cell_size/2
+	else:
+		return
 		
 	for c in cells:
-		if not pivot_point:
-			continue
-
 		var t = c.translation
 		var old_pos = world_to_map(t)
 		var new_t = c.move(direction, pivot_point)
@@ -68,6 +68,7 @@ func move_whole_shape(cells : Array, direction : Vector3):
 			yield(c, "finished_moving")
 	for c in get_whole_shape(cells[0].translation):
 		c.set_selected(true)
+
 func get_selected_children() -> Array:
 	var a = Array()
 	for c in get_children():
@@ -100,7 +101,6 @@ func check_box_moves(key):
 		shape_moving = true
 		move_whole_shape(selected_children, input_translation[key])
 		shape_moving = false
-
 
 func get_object_under_mouse() -> Dictionary:
 	var mouse_pos = get_viewport().get_mouse_position()
