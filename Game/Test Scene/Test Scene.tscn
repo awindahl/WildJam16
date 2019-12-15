@@ -135,7 +135,7 @@ environment = SubResource( 5 )
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 5 )
 data = {
-"cells": PoolIntArray( 65530, 65510, 1610612736 )
+"cells": PoolIntArray( 65530, 65510, 0 )
 }
 script = ExtResource( 6 )
 __meta__ = {

@@ -143,6 +143,9 @@ func _physics_process(delta):
 		#Animations.stop()
 		Animations.play("ArmAction", 0.01)
 		temp = false
+		var selected_cubes = grid_map.get_selected_children()
+		if selected_cubes.size() > 0:
+			myModel.look_at(selected_cubes[0].translation, Vector3.UP)
 	
 	# Apply Movement
 	Movement += CurrentVerticalSpeed
