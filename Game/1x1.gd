@@ -1,5 +1,6 @@
 extends "pawn.gd"
 signal finished_moving
+signal failed_moving
 
 onready var grid_map : GridMap = get_parent()
 var selected = false setget set_selected, get_selected
@@ -16,7 +17,7 @@ var end_quat : Quat
 var SPEED = 2
 
 func _ready():
-#	connect("finished_moving", grid_map, 
+	connect("failed_moving", grid_map, "on_cube_failed_move")
 
 	set_process(false)
 	
@@ -61,6 +62,9 @@ func is_selected():
 
 func _on_Area_body_entered(body):
 	if not body is GridMap and body != static_body:
-		value = 1 - value
-		start_transform = translate.inverse() * Transform(end_quat) * translate * start_transform
-		end_quat = end_quat.inverse()
+		emit_signal("failed_moving")
+
+func reverse():
+	value = 1 - value
+	start_transform = translate.inverse() * Transform(end_quat) * translate * start_transform
+	end_quat = end_quat.inverse()

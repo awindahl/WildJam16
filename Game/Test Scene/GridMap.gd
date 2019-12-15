@@ -112,3 +112,7 @@ func get_object_under_mouse() -> Dictionary:
 	if selection:
 		selection["position"] = selection["position"] + (ray_to-ray_from)*0.0001
 	return selection
+
+func on_cube_failed_move():
+	for c in get_selected_children():
+		c.reverse()
