@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Overworld.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Water.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ThirdPersonController/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GridMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://1x1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/waves.ogg" type="AudioStream" id=9]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -386.871, -152.079, -405.087, 773.742, 304.158, 810.174 )
@@ -119,5 +120,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.127, 1.36611, 57.8755 )
 
 [node name="Spatial2" parent="GridMap" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 116.055, 1.36611, 57.8755 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+[connection signal="body_entered" from="Objects/WinBox" to="." method="_on_WinBox_body_entered"]
 
 [editable path="Player"]
