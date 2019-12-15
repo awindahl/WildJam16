@@ -1,5 +1,4 @@
 extends "pawn.gd"
-signal stopped_moving
 
 onready var grid_map : GridMap = get_parent()
 
@@ -23,8 +22,9 @@ func _process(delta):
 	if value == 1:
 		set_process(false)
 	
-func move(direction : Vector3):
+func move(direction : Vector3, world_pos : Vector3):
 	value = 0
 	start = transform
-	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), start.origin + direction*grid_map.cell_size)
+	print(start)
+	end = Transform(start.basis.rotated(Vector3.UP.cross(direction), deg2rad(90)), world_pos)
 	set_process(true)
